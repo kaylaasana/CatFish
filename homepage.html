@@ -8,12 +8,31 @@
     <title>CatFish</title>
 </head>
 <body>
-    <!-- header with logo -->
-        <!-- img tag for logo -->
-    <!-- container for buttons -->
-        <!-- button - start -->
-        <!-- button - how to play -->
-            <!-- modal -->
+    
+    <!-- container for everything -->
+    <div class="container">
+        <img class="mb-6" src="./assets/img/logo(raw).jpeg" alt="logo">
+        <div class="container is-flex is-justify-content-space-around">
+            <button class="button is-large" id="start-btn">Start</button>
+            <button class="button is-large js-modal-trigger" data-target="modal-how-to-play" id="how-to-play-btn">How to play</button>
+        </div>
+    </div>
+        
+            <div id="modal-how-to-play" class="modal">
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                  <header class="modal-card-head">
+                    <p class="modal-card-title">Modal title</p>
+                    <button class="delete closeModal" aria-label="close"></button>
+                  </header>
+                  <section class="modal-card-body">
+                    <!-- Content ... -->
+                  </section>
+                  <footer class="modal-card-foot is-flex is-justify-content-end">
+                    <button class="button closeModal">Exit</button>
+                  </footer>
+                </div>
+              </div>
             
     <script src="./assets/JS/homepage.js"></script>
 </body>
