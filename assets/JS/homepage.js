@@ -7,18 +7,18 @@ var theModal = document.querySelector("#modal-how-to-play");
 var closingBtns = document.querySelectorAll(".closeModal");
 
 // function to start game
+function startGame(){
     // direct you to game page
-        // window.location.href=file path to index.html
-
-
-// function to display modal
-    // research bulma docs for direction
-    // event listener to close modal
+    window.location.href = "./index.html";
+}
+        
 
 
 // event listener for start button
-// event listener for how to play
+startBtn.addEventListener("click", startGame);
 
+
+// event listener for how to play
 how2PlayBtn.addEventListener("click", function(){
     theModal.classList.add("is-active");
 })
