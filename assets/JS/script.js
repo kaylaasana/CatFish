@@ -19,6 +19,16 @@ var inventory = {
 };
 
 // functions
+    // change char img
+    // var castBtn = document.querySelector("#cast-btn")
+    // var standingCat = document.querySelector("#standing-cat")
+    // var fishingCat = document.querySelector("#fishing-cat")
+
+    // castBtn.addEventListener('click', function() {
+    //     standingCat.classList.add("hidden")
+    //     fishingCat.classList.remove("hidden")
+    // })
+
     // cast rod function
     function castRod(){
         
@@ -117,12 +127,33 @@ function displayInventory(){
     // store fish function
 
     // display success
-        // minhee
+    var reelInButton = document.querySelector('#reel-btn')
+    var successModal = document.querySelector('#success-modal')
+    var failureModal = document.querySelector('#failure-model')
+    var closingBtns = document.querySelectorAll(".closeModal");
+
+    reelInButton.addEventListener("click", function() {
+        displaySuccessModal()
+    })
+
+    function displaySuccessModal() {
+        successModal.classList.add("is-active");
+        for(var i = 0; i < closingBtns.length; i++){
+            closingBtns[i].addEventListener("click", function(){
+                successModal.classList.remove("is-active");
+            })
+        }   
+    }
 
     // display failure
-        // minhee
-
-    // change char img
+    // function displayFailureModal() {        
+    //     failureModal.classList.add("is-active");
+    //     for(var i = 0; i < closingBtns.length; i++){
+    //         closingBtns[i].addEventListener("click", function(){
+    //             theModal.classList.remove("is-active");
+    //         })
+    //     }   
+    // }
 
     // sell fish function
 
