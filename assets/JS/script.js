@@ -54,15 +54,10 @@ function castRod() {
       // reel fish
     });
 }
-// fish name
-// fish price
-// image
-// icon
 
-    // set interval timer for fish bite
-        
+// set interval timer for fish bite
 
-    // reel fish function
+// reel fish function
 
 // set interval timer for reeling in fish
 
@@ -103,14 +98,6 @@ function displayInventory() {
   // display backpack modal
   backpackModal.classList.add("is-active");
 }
-
-// display success
-// minhee
-
-// display failure
-// minhee
-
-// change char img
 
 // display store
 
