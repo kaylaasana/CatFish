@@ -59,9 +59,10 @@ function castRod() {
 // image
 // icon
 
-// set interval timer for fish bite
+    // set interval timer for fish bite
+        
 
-// reel fish function
+    // reel fish function
 
 // set interval timer for reeling in fish
 
