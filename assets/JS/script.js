@@ -5,7 +5,7 @@
 var backpackBtn = document.querySelector('#closed');
 var backpackModal = document.querySelector('#backpack-modal');
 var exitBackpackBtn = document.querySelector('#exit-backpack');
-var inventoryRows = document.querySelector('#inventory-rows');
+var inventoryBody = document.querySelector('#table-body')
 
 // global variables
     // request URL
@@ -32,34 +32,36 @@ var inventory = {
 
     // set interval timer for reeling in fish
         
-// open inventory
- function getInventory(){
-    // display backpack modal
-    backpackModal.classList.add("is-active");
-    // display contents of inventory
-    for(var i = 0; i < inventory.fishIcon.length; i++){
-        fishIcon.push('fetch icon variable here');
-        // console.log(fishIcon); 
-        inventoryRows.createElement('td');
-        inventoryRows.append(fishIcon[i]);
-    }
-    for(var i = 0; i < inventory.fishName.length; i++){
-        fishName.push('fetch name variable here');
-        // console.log(fishName);
-        inventoryRows.createElement('td');
-        inventoryRows.append(fishName[i]);
-    }
-    for(var i = 0; i < inventory.fishPrice.length; i++){
-        fishPrice.push('fetch price variable here');
-        // console.log(fishPrice);
-        inventoryRows.createElement('td');
-        inventoryRows.append(fishPrice[i]);
-    }
-    // need to create sell button on each line of inventory
-    // need event listener for all sell buttons
+// update inventory
+ function addToInventory(){
+    // create table row element
+    var inventoryRow = document.createElement('tr'); 
+    // create table data elements for each data point for that inventory item and append to table row
+    var fishIconRow = document.createElement('td');
+    fishIconRow.textContent = inventory.fishIcon[inventory.fishIcon.length -1]
+    inventoryRow.append(fishIconRow);
+    
+    var fishNameRow = document.createElement('td');
+    fishNameRow.textContent = inventory.fishName[inventory.fishName.length -1]
+    inventoryRow.append(fishNameRow);
+    
+    var fishPriceRow = document.createElement('td');
+    fishPriceRow.textContent = inventory.fishPrice[inventory.fishPrice.length -1]
+    inventoryRow.append(fishPriceRow);
+    // need to create sell button for each line of inventory
+    var sellBtns = document.createElement('button')
+    sellBtns.setAttribute('class', 'sell-btns');
+    sellBtns,textContent = "Sell Fish";
+    inventoryRow.append(sellBtns);
+    // append data to table row
+    inventoryBody.append(inventoryRow);
+    // event listener for all sell buttons
         // sell buttons will clear only that line of inventory and add to wallet text content dependant on how much sell price is
  };
 
+//  function displayInventory()
+    // display backpack modal
+    // backpackModal.classList.add("is-active");
     // store fish function
 
     // display success
@@ -84,7 +86,7 @@ var inventory = {
     // cast rod button
     // reel in button
     // backpack button
-backpackBtn.addEventListener("click", getInventory);
+backpackBtn.addEventListener("click", displayInventory);
     // close backpack button
 exitBackpackBtn.addEventListener('click', function(){
     backpackModal.classList.remove("is-active");
