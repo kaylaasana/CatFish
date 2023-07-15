@@ -9,6 +9,16 @@
     // inventory
 
 // functions
+    // change char img
+    // var castBtn = document.querySelector("#cast-btn")
+    // var standingCat = document.querySelector("#standing-cat")
+    // var fishingCat = document.querySelector("#fishing-cat")
+
+    // castBtn.addEventListener('click', function() {
+    //     standingCat.classList.add("hidden")
+    //     fishingCat.classList.remove("hidden")
+    // })
+
     // cast rod function
         // fetch request
         // fish name
@@ -28,48 +38,32 @@
 
     // display success
     var reelInButton = document.querySelector('#reel-btn')
+    var successModal = document.querySelector('#success-modal')
+    var failureModal = document.querySelector('#failure-model')
+    var closingBtns = document.querySelectorAll(".closeModal");
 
-    var clicked = false
-    // reelInButton.addEventListener('click', function() {
-    //     clicked = true
-    // })
-
-    if(clicked === true) {
+    reelInButton.addEventListener("click", function() {
         displaySuccessModal()
-    } else {
-        displayFailureModal()
-    }
+    })
 
     function displaySuccessModal() {
-        var successModal = document.querySelector('#success-modal')
         successModal.classList.add("is-active");
         for(var i = 0; i < closingBtns.length; i++){
             closingBtns[i].addEventListener("click", function(){
-                theModal.classList.remove("is-active");
+                successModal.classList.remove("is-active");
             })
         }   
     }
 
     // display failure
-    function displayFailureModal() {
-        var failureModal = document.querySelector('#failure-model')
-        failureModal.classList.add("is-active");
-        for(var i = 0; i < closingBtns.length; i++){
-            closingBtns[i].addEventListener("click", function(){
-                theModal.classList.remove("is-active");
-            })
-        }   
-    }
-
-    // change char img
-    var castBtn = document.querySelector("cast-btn")
-    var standingCat = document.querySelector("standing-cat")
-    var fishingCat = document.querySelector("fishing-cat")
-
-    castBtn.addEventListener('click', function() {
-        standingCat.classList.add("hidden")
-        fishingCat.classList.remove("hidden")
-    })
+    // function displayFailureModal() {        
+    //     failureModal.classList.add("is-active");
+    //     for(var i = 0; i < closingBtns.length; i++){
+    //         closingBtns[i].addEventListener("click", function(){
+    //             theModal.classList.remove("is-active");
+    //         })
+    //     }   
+    // }
 
     // sell fish function
 
