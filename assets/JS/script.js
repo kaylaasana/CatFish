@@ -44,12 +44,12 @@ var inventory = {
             // random fish from the data set
             var randomFish = data[fishKey];
 
-            var fishObj = {
-                fName: randomFish.name["name-USen"],
-                fPrice: randomFish.price,
-                fIcon: randomFish.icon_uri,
-                fImg: randomFish.image_uri,
-            }
+            // add the data set to inventory object
+            inventory.fishName = randomFish.name["name-USen"],
+            inventory.fishPrice = randomFish.price,
+            inventory.fishIcon = randomFish.icon_uri,
+                
+            
             console.log(fishObj);
         })
         
