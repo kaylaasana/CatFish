@@ -5,16 +5,17 @@
 var backpackBtn = document.querySelector('#closed');
 var backpackModal = document.querySelector('#backpack-modal');
 var exitBackpackBtn = document.querySelector('#exit-backpack');
-var inventoryBody = document.querySelector('#table-body')
+var inventoryBody = document.querySelector('#table-body');
+var wallet = document.querySelector('#money');
 
 // global variables
     // request URL
     // money
     // inventory
 var inventory = {
-    fishIcon: [],
-    fishName: [],
-    fishPrice: [],
+    fishIcon: '',
+    fishName: '',
+    fishPrice: '',
 };
 
 // functions
@@ -38,15 +39,15 @@ var inventory = {
     var inventoryRow = document.createElement('tr'); 
     // create table data elements for each data point for that inventory item and append to table row
     var fishIconRow = document.createElement('td');
-    fishIconRow.textContent = inventory.fishIcon[inventory.fishIcon.length -1]
+    fishIconRow.textContent = inventory.fishIcon
     inventoryRow.append(fishIconRow);
     
     var fishNameRow = document.createElement('td');
-    fishNameRow.textContent = inventory.fishName[inventory.fishName.length -1]
+    fishNameRow.textContent = inventory.fishName
     inventoryRow.append(fishNameRow);
     
     var fishPriceRow = document.createElement('td');
-    fishPriceRow.textContent = inventory.fishPrice[inventory.fishPrice.length -1]
+    fishPriceRow.textContent = inventory.fishPrice
     inventoryRow.append(fishPriceRow);
     // need to create sell button for each line of inventory
     var sellBtns = document.createElement('button')
@@ -56,7 +57,13 @@ var inventory = {
     // append data to table row
     inventoryBody.append(inventoryRow);
     // event listener for all sell buttons
-        // sell buttons will clear only that line of inventory and add to wallet text content dependant on how much sell price is
+    sellBtns.addEventListener('click', function(){
+        // clear table row data
+        inventoryRow.remove();
+        // get current wallet price
+        // update wallet total
+        wallet.textContent = parseInt(wallet.textContent) + inventory.fishPrice;
+    })
  };
 
 //  function displayInventory()
