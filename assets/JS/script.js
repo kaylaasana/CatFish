@@ -27,6 +27,28 @@
     // store fish function
 
     // display success
+    var reelInButton = document.querySelector('#reel-btn')
+
+    var clicked = false
+    reelInButton.addEventListener('click', function() {
+        clicked = true
+    })
+
+    if(clicked = true) {
+        displaySuccessModal()
+    } else {
+        displayFailureModal()
+    }
+
+    function displaySuccessModal() {
+        var successModal = document.querySelector('#success-modal')
+        successModal.classList.add("is-active");
+        for(var i = 0; i < closingBtns.length; i++){
+            closingBtns[i].addEventListener("click", function(){
+                theModal.classList.remove("is-active");
+            })
+        }   
+    }
 
     // display failure
     function displayFailureModal() {
