@@ -11,12 +11,15 @@
 
 #fishing-cat {
     height: 10rem;
-    margin-right: 5rem;
+    margin-right: 80rem;
+    position: absolute;
+    z-index: 1;
 }
 
 #lake {
     width: 80rem;
     height: 20rem;
+    position: relative;
 }
 
 #main-box {
