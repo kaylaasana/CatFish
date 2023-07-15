@@ -33,7 +33,14 @@
 
             // random fish from the data set
             var randomFish = data[fishKey];
-            console.log(randomFish);
+
+            var fishObj = {
+                fName: randomFish.name["name-USen"],
+                fPrice: randomFish.price,
+                fIcon: randomFish.icon_uri,
+                fImg: randomFish.image_uri,
+            }
+            console.log(fishObj);
         })
         
     }
