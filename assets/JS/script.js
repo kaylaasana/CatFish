@@ -65,10 +65,11 @@ var inventory = {
         wallet.textContent = parseInt(wallet.textContent) + inventory.fishPrice;
     })
  };
-
-//  function displayInventory()
+// display inventory
+function displayInventory(){
     // display backpack modal
-    // backpackModal.classList.add("is-active");
+    backpackModal.classList.add("is-active");
+}
     // store fish function
 
     // display success
