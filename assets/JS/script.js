@@ -62,7 +62,14 @@
     }
 
     // change char img
+    var castBtn = document.querySelector("cast-btn")
+    var standingCat = document.querySelector("standing-cat")
+    var fishingCat = document.querySelector("fishing-cat")
 
+    castBtn.addEventListener('click', function() {
+        standingCat.classList.add("hidden")
+        fishingCat.classList.remove("hidden")
+    })
 
     // sell fish function
 
