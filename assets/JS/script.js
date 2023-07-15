@@ -30,11 +30,11 @@
     var reelInButton = document.querySelector('#reel-btn')
 
     var clicked = false
-    reelInButton.addEventListener('click', function() {
-        clicked = true
-    })
+    // reelInButton.addEventListener('click', function() {
+    //     clicked = true
+    // })
 
-    if(clicked = true) {
+    if(clicked === true) {
         displaySuccessModal()
     } else {
         displayFailureModal()
