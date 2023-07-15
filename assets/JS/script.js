@@ -84,10 +84,35 @@ var inventory = {
     // display store
    
     // get random cat fact
+
         // june
 
     // get random number(max, min)    
         // june  
+
+    function getRandomCatFact(){
+        // triggered when the user purchases from the store
+        // retrieves cat fact from the server side api
+        // return the data
+        var catUrl = "https://meowfacts.herokuapp.com/"
+        fetch(catUrl)
+        .then(function(response){
+            return response.json();
+        })
+        .then(function (retrievedData){
+            console.log(retrievedData.data[0]);
+            return retrievedData.data[0];
+            
+        })
+    }
+
+    // get random number(max, min) inclusive
+    function getRandomNumber(max, min){
+        var randomNum = Math.floor(Math.random() * (max - min + 1) ) + min;
+        return randomNum;
+    }
+          
+
 
 // event listeners
     // cast rod button
