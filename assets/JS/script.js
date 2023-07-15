@@ -52,8 +52,13 @@
             
         })
     }
-    
-    // get random number(max, min)      
+
+    // get random number(max, min) inclusive
+    function getRandomNumber(max, min){
+        var randomNum = Math.floor(Math.random() * (max - min + 1) ) + min;
+        return randomNum;
+    }
+          
 
 // event listeners
     // cast rod button
