@@ -62,7 +62,15 @@ var inventory = {
         // image
         // icon
 
-    // set interval timer for fish bite
+    // delays fish bite
+    function setCastingTime(){
+        // get a random number for how long it should delay between 
+        var delay = getRandomNumber(8000, 5000);
+        // after certain amount of time, make the reel in available
+        setTimeout(function(){
+            // sets the exclamation mark (on bite)
+        }, delay)
+    }
         
 
     // reel fish function
