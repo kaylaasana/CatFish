@@ -45,16 +45,18 @@ var inventory = {
             var randomFish = data[fishKey];
 
             // add the data set to inventory object
-            inventory.fishName = randomFish.name["name-USen"],
-            inventory.fishPrice = randomFish.price,
-            inventory.fishIcon = randomFish.icon_uri,
+            inventory.fishName = randomFish.name["name-USen"];
+            inventory.fishPrice = randomFish.price;
+            inventory.fishIcon = randomFish.icon_uri;
                 
+            var fishImg = randomFish.image_uri;
+            console.log(fishImg);
+
+            // reel fish
             
-            console.log(fishObj);
         })
         
     }
-    castRod();
         // fish name
         // fish price
         // image
