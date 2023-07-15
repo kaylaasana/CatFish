@@ -37,7 +37,22 @@
     // display store
    
     // get random cat fact
-
+    function getRandomCatFact(){
+        // triggered when the user purchases from the store
+        // retrieves cat fact from the server side api
+        // return the data
+        var catUrl = "https://meowfacts.herokuapp.com/"
+        fetch(catUrl)
+        .then(function(response){
+            return response.json();
+        })
+        .then(function (retrievedData){
+            console.log(retrievedData.data[0]);
+            return retrievedData.data[0];
+            
+        })
+    }
+    
     // get random number(max, min)      
 
 // event listeners
