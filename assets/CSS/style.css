@@ -2,15 +2,19 @@
     margin-top: 2rem;
 }
 
-#standing-cat,
+#standing-cat {
+    position: absolute;
+    margin-right: 90rem;
+    height: 13rem;
+}
+
 #happy-cat {
     margin-left: 1rem;
-    width: 8rem;
     height: 13rem;
 }
 
 #fishing-cat {
-    height: 10rem;
+    height: 13rem;
     margin-right: 80rem;
     position: absolute;
     z-index: 1;
