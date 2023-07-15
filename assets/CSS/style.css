@@ -1,0 +1,43 @@
+#commerce {
+    margin-top: 2rem;
+}
+
+#commerce-btns {
+    
+}
+
+#cat {
+    background-color: red;
+    width: 8rem;
+    height: 13rem;
+}
+
+#lake {
+    width: 30rem;
+    height: 15rem;
+}
+
+#main-box {
+    margin-top: 10rem;
+}
+
+#store {
+    width: 5%;
+    height: 10%;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+#closed {
+    width: 4.5%;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+#cast {
+    margin-top: 10rem;
+}
+
+.hidden {
+    display: none;
+}
