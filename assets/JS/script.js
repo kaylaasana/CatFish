@@ -10,6 +10,11 @@ var exitBackpackBtn = document.querySelector('#exit-backpack');
     // request URL
     // money
     // inventory
+var inventory = {
+    fishIcon: [],
+    fishName: [],
+    fishPrice: [],
+}
 
 // functions
     // cast rod function
@@ -29,10 +34,19 @@ var exitBackpackBtn = document.querySelector('#exit-backpack');
 
  function getInventory(){
     backpackModal.classList.add("is-active");
-    
+    for(var i = 0; i < inventory.fishIcon.length; i++){
+        fishIcon.push('fetch icon variable here');
+        console.log(fishIcon)        
+    }
+    for(var i = 0; i < inventory.fishName.length; i++){
+        fishName.push('fetch name variable here')
+        console.log(fishName)
+    }
+    for(var i = 0; i < inventory.fishPrice.length; i++){
+        fishPrice.push('fetch price variable here')
+        console.log(fishPrice)
+    }
  }
-        // kayla 
-        // open inventory - display
 
     // store fish function
 
