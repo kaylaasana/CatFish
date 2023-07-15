@@ -29,8 +29,18 @@
     // display success
 
     // display failure
+    function displayFailureModal() {
+        var failureModal = document.querySelector('#failure-model')
+        failureModal.classList.add("is-active");
+        for(var i = 0; i < closingBtns.length; i++){
+            closingBtns[i].addEventListener("click", function(){
+                theModal.classList.remove("is-active");
+            })
+        }   
+    }
 
     // change char img
+
 
     // sell fish function
 
