@@ -4,33 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/CSS/style.css">
+    <link rel="stylesheet" href="./CSS/style.css">
 
     <!-- sets browser icon -->
-    <link rel="icon" type="image/x-icon" href="./assets/img/cat-fish-icon.ico">
+    <link rel="icon" type="image/x-icon" href="./img/cat-fish-icon.ico">
     
     <title>CatFish</title>
 </head>
 <body>
     <header>
         <div class="container is-flex is-fluid is-justify-content-end" id="commerce">
-            <img src="./assets/img/store.png" alt="store" id="store">
-            <img src="./assets/img/closed_backpack.jpg" alt="closed_backpack" id="closed">
+            <img src="./img/store.png" alt="store" id="store">
+            <img src="./img/closed_backpack.jpg" alt="closed_backpack" id="closed">
             <h3>Wallet: <span id="money">0</span>$</h3>
         </div>
     </header>
 
     <div class="container is-flex is-fluid is-justify-content-space-around" id="main-box">
-        <img src="./assets/img/standing-cat.jpg" class="image" id="standing-cat">
-        <img src="./assets/img/asdfg.png" class="image hidden" id="fishing-cat">
+        <img src="./img/standing-cat.jpg" class="image" id="standing-cat">
+        <img src="./img/fishing-cat.png" class="image hidden" id="fishing-cat">
+        <h1 id="bite-reaction" class="hidden">!!!</h1>
         <div class="has-background-link" id="lake"></div>
     </div>
 
     <div class="container" id="cast">
-        <!-- <button class="button" id="cast-btn">Cast rod</button> -->
+        <button class="button" id="cast-btn">Cast rod</button>
     </div>
 
-    <button class="button" id="reel-btn">Reel in</button>
+    <button class="button is-large hidden" id="reel-btn">REEL IN!</button>
 
     <!-- character container -->
         <!-- pre-cast img -->
@@ -94,7 +95,7 @@
             </header>
             <section class="modal-card-body">
                 <p class="message">Congrats! You caught a <span id="fish-name"></span>.</p>
-                <img src="./assets/img/happy-cat.jpg" id="happy-cat" alt="happy cat">
+                <img src="./img/happy-cat.jpg" id="happy-cat" alt="happy cat">
             </section>
             <footer class="modal-card-foot">
             <button class="button closeModal">Exit</button>
@@ -113,7 +114,7 @@
             </header>
             <section class="modal-card-body">
                 <p class="message">Oh no! You failed to catch a fish.</p>
-                <img src="./assets/img/sad-cat.jpg" id="sad-cat" alt="sad cat">
+                <img src="./img/sad-cat.jpg" id="sad-cat" alt="sad cat">
             </section>
             <footer class="modal-card-foot">
             <button class="button closeModal">Exit</button>
@@ -121,5 +122,5 @@
         </div>
     </div>
 
-    <script src="./assets/JS/script.js"></script>
+    <script src="./JS/script.js"></script>
 </html>

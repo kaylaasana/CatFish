@@ -1,25 +1,37 @@
 // element selectors
-// character container
-// container for commerce
-// all the buttons (6 buttons)
-var backpackBtn = document.querySelector("#closed");
-var backpackModal = document.querySelector("#backpack-modal");
-var exitBackpackBtn = document.querySelector("#exit-backpack");
-var inventoryBody = document.querySelector("#table-body");
-var wallet = document.querySelector("#money");
+    // character container
+    // container for commerce
+    // all the buttons (6 buttons)
+var backpackBtn = document.querySelector('#closed');
+var backpackModal = document.querySelector('#backpack-modal');
+var exitBackpackBtn = document.querySelector('#exit-backpack');
+var inventoryBody = document.querySelector('#table-body');
+var wallet = document.querySelector('#money');
+var exclamationMark = document.querySelector("#bite-reaction");
+var reelInButton = document.querySelector('#reel-btn');
+var successModal = document.querySelector('#success-modal');
+var failureModal = document.querySelector('#failure-modal');
+var closingBtns = document.querySelectorAll(".closeModal");
+var castBtn = document.querySelector("#cast-btn")
 var storeBtn = document.querySelector("#store");
 var storeModal = document.querySelector("#store-modal");
 var exitStoreBtn = document.querySelector("#exit-store");
+var fishNameinModal = document.querySelector("#fish-name")
+var timeInterval;
 
 // global variables
 // request URL
 // money
 // inventory
 var inventory = {
-  fishIcon: "",
-  fishName: "",
-  fishPrice: "",
+    fishIcon: '',
+    fishName: '',
+    fishPrice: '',
+    fishImg: '',
 };
+
+// variable for checking the amount of click the user made for reel-in
+var reelInHit = 0;
 
 // functions
     // change char img
@@ -131,6 +143,7 @@ var inventory = {
     // store fish function
 // cast rod function
 function castRod() {
+    castBtn.classList.add("hidden");
   // gets random fish data from animal crossing api
   var axUrl = "http://acnhapi.com/v1/fish/";
   // fetch request to get data
@@ -153,24 +166,102 @@ function castRod() {
       // random fish from the data set
       var randomFish = data[fishKey];
 
-      // add the data set to inventory object
-      inventory.fishName = randomFish.name["name-USen"];
-      inventory.fishPrice = randomFish.price;
-      inventory.fishIcon = randomFish.icon_uri;
+            // add the data set to inventory object
+            inventory.fishName = randomFish.name["name-USen"];
+            inventory.fishPrice = randomFish.price;
+            inventory.fishIcon = randomFish.icon_uri;
+                
+            inventory.fishImg = randomFish.image_uri;
+            
 
-      var fishImg = randomFish.image_uri;
-      console.log(fishImg);
+            setCastingTime();
+            
+        })
+        
+    }
+        // fish name
+        // fish price
+        // image
+        // icon
 
-      // reel fish
-    });
-}
+    // delays fish bite
+    function setCastingTime(){
+        // get a random number for how long it should delay between 
+        var delay = getRandomNumber(8000, 5000);
+        // after certain amount of time, make the reel in available
+        setTimeout(function(){
+            // sets the exclamation mark (on bite)
+            exclamationMark.classList.remove("hidden");
 
-// set interval timer for fish bite
+            // triggers reel-in
+            reelIn();
 
-// reel fish function
+            // sets time interval
+            reelInInterval();
+        }, delay)
+    }
+        
 
-// set interval timer for reeling in fish
+    // reel fish function
+    function reelIn(){
+        // displays reelIn button on random place on screen
+        reelInButton.classList.remove("hidden");
+        // get random number for position x
+        var posX = getRandomNumber(90, 0);
+        var posY = getRandomNumber(90, 0);
+        
+        // moves the button to random position
+        reelInButton.style.left = posX + "%";
+        reelInButton.style.top = posY + "%";
 
+        // increases hit counter
+        reelInHit++;
+        if(reelInHit >= 5){
+            // displays successs modal
+            displaySuccessModal();
+            clearInterval(timeInterval)
+
+            // make the fish name available
+            fishNameinModal.textContent = inventory.fishName;
+            // hides reel in button
+            reelInButton.classList.add("hidden")
+
+            // re display cast button
+            castBtn.classList.remove("hidden")
+
+            // hide exclamation mark
+            exclamationMark.classList.add("hidden")
+        
+            // resets hit counter
+            reelInHit = 0;
+        }
+
+        
+    }
+
+    // set interval timer for reeling in fish
+    function reelInInterval(){
+        var timeCount = 0;
+        timeInterval = setInterval(function(){
+            timeCount++;
+            // if the user takes too long to reel in
+            if(timeCount >= 5 && reelInHit < 5){
+                console.log("failure!")
+                clearInterval(timeInterval);
+                displayFailureModal();
+
+                // hides reel in button
+                reelInButton.classList.add("hidden")
+
+                // hide exclamation mark
+                exclamationMark.classList.add("hidden")
+
+                // re display cast button
+                castBtn.classList.remove("hidden")
+            }
+        }, 1000)
+    }
+        
 // update inventory
 function addToInventory() {
   // create table row element
@@ -208,6 +299,29 @@ function displayInventory() {
   // display backpack modal
   backpackModal.classList.add("is-active");
 }
+
+    // display success
+
+    function displaySuccessModal() {
+        successModal.classList.add("is-active");
+        for(var i = 0; i < closingBtns.length; i++){
+            closingBtns[i].addEventListener("click", function(){
+                successModal.classList.remove("is-active");
+            })
+        }   
+    }
+
+    function displayFailureModal() {        
+        failureModal.classList.add("is-active");
+        for(var i = 0; i < closingBtns.length; i++){
+            closingBtns[i].addEventListener("click", function(){
+                failureModal.classList.remove("is-active");
+            })
+        }   
+    }
+
+    // sell fish function
+
 // display store
 function displayStore() {
   storeModal.classList.add("is-active");
@@ -290,6 +404,12 @@ function getRandomNumber(max, min) {
     // sell fish button
     // cat fact button
 // backpack button
+// event listeners
+    // cast rod button
+castBtn.addEventListener("click", castRod);
+    // reel in button
+reelInButton.addEventListener("click", reelIn);
+    // backpack button
 backpackBtn.addEventListener("click", displayInventory);
 // close backpack button
 exitBackpackBtn.addEventListener("click", function () {
