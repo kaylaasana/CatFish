@@ -16,6 +16,7 @@ var castBtn = document.querySelector("#cast-btn")
 var storeBtn = document.querySelector("#store");
 var storeModal = document.querySelector("#store-modal");
 var exitStoreBtn = document.querySelector("#exit-store");
+var timeInterval;
 
 // global variables
 // request URL
@@ -32,7 +33,6 @@ var inventory = {
 var reelInHit = 0;
 
 // functions
-<<<<<<< HEAD
     // change char img
     var castBtn = document.querySelector("#cast-btn")
     var standingCat = document.querySelector("#standing-cat")
@@ -140,7 +140,6 @@ var reelInHit = 0;
         backpackModal.classList.add("is-active");
     }
     // store fish function
-=======
 // cast rod function
 function castRod() {
   // gets random fish data from animal crossing api
@@ -202,7 +201,7 @@ function castRod() {
         
 
     // reel fish function
-    function reelIn(event){
+    function reelIn(){
         // displays reelIn button on random place on screen
         reelInButton.classList.remove("hidden");
         // get random number for position x
@@ -218,7 +217,8 @@ function castRod() {
         if(reelInHit >= 5){
             // displays successs modal
             displaySuccessModal();
-
+            clearInterval(timeInterval)
+        
             // resets hit counter
             reelInHit = 0;
         }
@@ -229,17 +229,14 @@ function castRod() {
     // set interval timer for reeling in fish
     function reelInInterval(){
         var timeCount = 0;
-        var timeInterval = setInterval(function(){
+        timeInterval = setInterval(function(){
             timeCount++;
             // if the user takes too long to reel in
             if(timeCount >= 5 && reelInHit < 5){
                 console.log("failure!")
                 clearInterval(timeInterval);
                 displayFailureModal();
-            }
-            if (reelInHit >= 5){
-                // if user successfully reels in
-                clearInterval(timeInterval);
+                reelInButton.classList.add("hidden")
             }
         }, 1000)
     }
@@ -347,4 +344,3 @@ storeBtn.addEventListener("click", displayStore);
 exitStoreBtn.addEventListener("click", function () {
   storeModal.classList.remove("is-active");
 });
->>>>>>> 0d0f6aee193b2425f424e3b0c4d341610ebd65b5
