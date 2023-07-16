@@ -10,7 +10,7 @@ var wallet = document.querySelector('#money');
 var exclamationMark = document.querySelector("#bite-reaction");
 var reelInButton = document.querySelector('#reel-btn');
 var successModal = document.querySelector('#success-modal');
-var failureModal = document.querySelector('#failure-model');
+var failureModal = document.querySelector('#failure-modal');
 var closingBtns = document.querySelectorAll(".closeModal");
 var castBtn = document.querySelector("#cast-btn")
 var storeBtn = document.querySelector("#store");
@@ -123,10 +123,12 @@ function castRod() {
         var timeInterval = setInterval(function(){
             timeCount++;
             // if the user takes too long to reel in
-            if(timeCount >= 2 && reelInHit < 5){
+            if(timeCount >= 5 && reelInHit < 5){
+                console.log("failure!")
                 clearInterval(timeInterval);
                 displayFailureModal();
-            } else if (reelInHit >= 5){
+            }
+            if (reelInHit >= 5){
                 // if user successfully reels in
                 clearInterval(timeInterval);
             }
@@ -186,7 +188,7 @@ function displayInventory() {
         failureModal.classList.add("is-active");
         for(var i = 0; i < closingBtns.length; i++){
             closingBtns[i].addEventListener("click", function(){
-                theModal.classList.remove("is-active");
+                failureModal.classList.remove("is-active");
             })
         }   
     }
