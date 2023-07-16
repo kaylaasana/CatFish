@@ -4,3 +4,22 @@
     padding: 0;
 }
 
+#modal-how-to-play {
+    font-family: 'VT323';
+}
+
+#start-btn,
+#how-to-play-btn {
+    font-family: 'VT323';
+    font-size: 48px;
+    background-color: beige;
+}
+
+.modal-card-body {
+    background-color: rgb(240, 219, 196);
+}
+
+.modal-card-body h2 {
+    font-size: 24px;
+}
+
