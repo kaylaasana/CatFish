@@ -22,6 +22,7 @@ var angryCat = document.querySelector("#angry-store-cat");
 var storeCat = document.querySelector("#store-cat");
 var closedBackpack = document.querySelector("#closed")
 var openedBackpack = document.querySelector("#open")
+// element selectors for fish guy
 
 // global variables
 var inventory = {
@@ -29,6 +30,7 @@ var inventory = {
   fishName: "",
   fishPrice: "",
   fishImg: "",
+  // fish guy price
 };
 var factPrice = 5000;
 var timeInterval;
@@ -346,6 +348,13 @@ function displayCatFact(randomCatFact) {
   catFact.textContent = randomCatFact;
 }
 
+// display inventory for selling to fish guy
+    // fish guy price will be the only difference
+  // sell fish to fish guy
+    // price increases more 
+
+// chance fish guy appears
+  // 
 
 
 // event listeners
