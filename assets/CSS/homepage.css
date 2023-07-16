@@ -29,6 +29,17 @@
     z-index: 5;
     margin-top: 35rem;
     border-radius: 25px;
+    box-shadow: 2px 3px black;
+}
+
+#start-btn:hover,
+#how-to-play-btn:hover {
+    background-color: antiquewhite;
+}
+
+#start-btn:active,
+#how-to-play-btn:active {
+    transform: translateY(3px);
 }
 
 .modal-card-body {
