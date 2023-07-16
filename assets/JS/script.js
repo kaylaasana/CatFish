@@ -18,6 +18,8 @@ var storeModal = document.querySelector("#store-modal");
 var exitStoreBtn = document.querySelector("#exit-store");
 var fishNameinModal = document.querySelector("#fish-name")
 var timeInterval;
+var buyFactBtn = document.querySelector('#cat-fact-btn')
+var factPrice = 5000;
 
 // global variables
 // request URL
@@ -328,6 +330,7 @@ function displayStore() {
 }
 
 function getRandomCatFact() {
+  // condition to check is user has enough money  
   // triggered when the user purchases from the store
   // retrieves cat fact from the server side api
   // return the data
@@ -338,7 +341,7 @@ function getRandomCatFact() {
     })
     .then(function (retrievedData) {
       console.log(retrievedData.data[0]);
-      return retrievedData.data[0];
+      displayCatFact(retrievedData.data[0]);
     });
 }
 
@@ -346,6 +349,14 @@ function getRandomCatFact() {
 function getRandomNumber(max, min) {
   var randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
   return randomNum;
+}
+
+function displayCatFact(randomCatFact){
+    // append or change text content of wallet
+    wallet.textContent = parseInt(wallet.textContent) - factPrice;
+    // set text content the cat fact to cat fact div
+    var catFact = document.querySelector('#cat-fact')
+    catFact.textContent = randomCatFact;
 }
 
 // event listeners
@@ -365,3 +376,5 @@ storeBtn.addEventListener("click", displayStore);
 exitStoreBtn.addEventListener("click", function () {
   storeModal.classList.remove("is-active");
 });
+// buy cat fact button
+buyFactBtn.addEventListener('click', getRandomCatFact);
