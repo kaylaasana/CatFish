@@ -8,9 +8,16 @@
     height: 13rem;
 }
 
-#happy-cat {
+#happy-cat,
+#sad-cat {
     margin-left: 1rem;
     height: 13rem;
+}
+
+#fish-image {
+    height: 5rem;
+    position: absolute;
+    margin-top: 3rem;
 }
 
 #fishing-cat {
@@ -65,14 +72,11 @@
     top: 10%;
 }
 
-#store-cat{
+#store-cat,
+#angry-store-cat {
     height: 13rem;
 }
 
 .has-text-centered {
     font-size: xx-large;
-}
-
-#angry-store-cat {
-    height: 13rem;
 }

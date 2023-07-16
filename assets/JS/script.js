@@ -14,6 +14,7 @@ var storeBtn = document.querySelector("#store");
 var storeModal = document.querySelector("#store-modal");
 var exitStoreBtn = document.querySelector("#exit-store");
 var fishNameinModal = document.querySelector("#fish-name");
+var fishImage = document.querySelector('#fish-image')
 var buyFactBtn = document.querySelector("#cat-fact-btn");
 var catFact = document.querySelector("#cat-fact");
 var angryCat = document.querySelector("#angry-store-cat");
@@ -201,6 +202,7 @@ function reelIn() {
 
     // make the fish name available
     fishNameinModal.textContent = inventory.fishName;
+    fishImage.src = inventory.fishImg;
     // hides reel in button
     reelInButton.classList.add("hidden");
 
