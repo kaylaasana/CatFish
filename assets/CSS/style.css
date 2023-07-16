@@ -38,14 +38,15 @@
 }
 
 #store {
-    width: 5%;
+    width: 8.5%;
     height: 10%;
     cursor: pointer;
     margin-left: 1rem;
 }
 
-#closed {
-    width: 4.5%;
+#closed,
+#open {
+    width: 8%;
     cursor: pointer;
     margin-left: 1rem;
 }
