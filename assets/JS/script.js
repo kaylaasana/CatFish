@@ -7,6 +7,9 @@ var backpackModal = document.querySelector("#backpack-modal");
 var exitBackpackBtn = document.querySelector("#exit-backpack");
 var inventoryBody = document.querySelector("#table-body");
 var wallet = document.querySelector("#money");
+var storeBtn = document.querySelector("#store");
+var storeModal = document.querySelector("#store-modal");
+var exitStoreBtn = document.querySelector("#exit-store");
 
 // global variables
 // request URL
@@ -19,21 +22,20 @@ var inventory = {
 };
 
 // functions
-    // cast rod function
-    function castRod(){
-        
-        // gets random fish data from animal crossing api
-        var axUrl = "http://acnhapi.com/v1/fish/"
-        // fetch request to get data
-        fetch(axUrl)
-        .then(function(response){
-            return response.json()
-        })
-        .then(function(data){
-            console.log(data)
-            // get random number to get random fish data from animal crossing api
-            // make an array of keys
-            var dataKeys = Object.keys(data);
+// cast rod function
+function castRod() {
+  // gets random fish data from animal crossing api
+  var axUrl = "http://acnhapi.com/v1/fish/";
+  // fetch request to get data
+  fetch(axUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      // get random number to get random fish data from animal crossing api
+      // make an array of keys
+      var dataKeys = Object.keys(data);
 
       // get a random number between key length and 0 (inclusive)
       var randomNum = getRandomNumber(dataKeys.length - 1, 0);
@@ -55,15 +57,10 @@ var inventory = {
       // reel fish
     });
 }
-// fish name
-// fish price
-// image
-// icon
 
-    // set interval timer for fish bite
-        
+// set interval timer for fish bite
 
-    // reel fish function
+// reel fish function
 
 // set interval timer for reeling in fish
 
@@ -104,18 +101,10 @@ function displayInventory() {
   // display backpack modal
   backpackModal.classList.add("is-active");
 }
-
-    // display success
-        // minhee
-
-    // display failure
-        // minhee
-
-    // change char img
-
-    // sell fish function
-
 // display store
+function displayStore() {
+  storeModal.classList.add("is-active");
+}
 
 function getRandomCatFact() {
   // triggered when the user purchases from the store
@@ -138,15 +127,15 @@ function getRandomNumber(max, min) {
   return randomNum;
 }
 
-// event listeners
-// cast rod button
-// reel in button
 // backpack button
 backpackBtn.addEventListener("click", displayInventory);
 // close backpack button
 exitBackpackBtn.addEventListener("click", function () {
   backpackModal.classList.remove("is-active");
 });
-// store button
-// sell fish button
-// cat fact button
+// open store button
+storeBtn.addEventListener("click", displayStore);
+// close store button
+exitStoreBtn.addEventListener("click", function () {
+  storeModal.classList.remove("is-active");
+});

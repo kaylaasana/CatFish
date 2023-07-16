@@ -43,3 +43,11 @@
 .hidden {
     display: none;
 }
+
+#store-cat{
+    height: 13rem;
+}
+
+.has-text-centered {
+    font-size: xx-large;
+}
