@@ -7,6 +7,11 @@ var backpackModal = document.querySelector('#backpack-modal');
 var exitBackpackBtn = document.querySelector('#exit-backpack');
 var inventoryBody = document.querySelector('#table-body');
 var wallet = document.querySelector('#money');
+var exclamationMark = document.querySelector("#bite-reaction");
+var reelInButton = document.querySelector('#reel-btn');
+var successModal = document.querySelector('#success-modal');
+var failureModal = document.querySelector('#failure-model');
+var closingBtns = document.querySelectorAll(".closeModal");
 
 // global variables
     // request URL
@@ -62,7 +67,7 @@ var inventory = {
             var fishImg = randomFish.image_uri;
             console.log(fishImg);
 
-            // reel fish
+            setCastingTime();
             
         })
         
@@ -79,11 +84,27 @@ var inventory = {
         // after certain amount of time, make the reel in available
         setTimeout(function(){
             // sets the exclamation mark (on bite)
+            exclamationMark.classList.remove("hidden");
+
+            // triggers reel-in
+            reelIn();
         }, delay)
     }
         
 
     // reel fish function
+    function reelIn(event){
+        // displays reelIn button on random place on screen
+        // get random number for position x
+        var posX = getRandomNumber(90, 0);
+        var posY = getRandomNumber(90, 0);
+        
+        // moves the button to random position
+        event.target.style.left = posX + "%";
+        event.target.style.top = posY + "%";
+
+        console.log(event.target);
+    }
 
     // set interval timer for reeling in fish
         
@@ -127,14 +148,6 @@ function displayInventory(){
     // store fish function
 
     // display success
-    var reelInButton = document.querySelector('#reel-btn')
-    var successModal = document.querySelector('#success-modal')
-    var failureModal = document.querySelector('#failure-model')
-    var closingBtns = document.querySelectorAll(".closeModal");
-
-    reelInButton.addEventListener("click", function() {
-        displaySuccessModal()
-    })
 
     function displaySuccessModal() {
         successModal.classList.add("is-active");
@@ -193,6 +206,7 @@ function displayInventory(){
 // event listeners
     // cast rod button
     // reel in button
+reelInButton.addEventListener("click", reelIn);
     // backpack button
 backpackBtn.addEventListener("click", displayInventory);
     // close backpack button
