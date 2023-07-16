@@ -92,6 +92,9 @@ var reelInHit = 0;
 
             // triggers reel-in
             reelIn();
+
+            // sets time interval
+            reelInInterval();
         }, delay)
     }
         
@@ -121,6 +124,20 @@ var reelInHit = 0;
     }
 
     // set interval timer for reeling in fish
+    function reelInInterval(){
+        var timeCount = 0;
+        var timeInterval = setInterval(function(){
+            timeCount++;
+            // if the user takes too long to reel in
+            if(timeCount >= 5){
+                clearInterval(timeInterval);
+                displayFailureModal();
+            } else if (reelInHit >= 5){
+                // if user successfully reels in
+                clearInterval(timeInterval);
+            }
+        }, 1000)
+    }
         
 // update inventory
  function addToInventory(){
@@ -172,15 +189,14 @@ function displayInventory(){
         }   
     }
 
-    // display failure
-    // function displayFailureModal() {        
-    //     failureModal.classList.add("is-active");
-    //     for(var i = 0; i < closingBtns.length; i++){
-    //         closingBtns[i].addEventListener("click", function(){
-    //             theModal.classList.remove("is-active");
-    //         })
-    //     }   
-    // }
+    function displayFailureModal() {        
+        failureModal.classList.add("is-active");
+        for(var i = 0; i < closingBtns.length; i++){
+            closingBtns[i].addEventListener("click", function(){
+                theModal.classList.remove("is-active");
+            })
+        }   
+    }
 
     // sell fish function
 
