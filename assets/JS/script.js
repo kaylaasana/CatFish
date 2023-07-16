@@ -23,6 +23,8 @@ var storeCat = document.querySelector("#store-cat");
 var closedBackpack = document.querySelector("#closed")
 var openedBackpack = document.querySelector("#open")
 // element selectors for fish guy
+var sellToCj = document.querySelector('#cj')
+var openCjModal = document.querySelector('#cj-modal-inv')
 
 // global variables
 var inventory = {
@@ -349,13 +351,32 @@ function displayCatFact(randomCatFact) {
 }
 
 // display inventory for selling to fish guy
-    // fish guy price will be the only difference
-  // sell fish to fish guy
-    // price increases more 
+// function addToCjSellInv(){
+//   // // create table row element
+//   // var inventoryRow = document.createElement("tr");
+//   // // create table data elements for each data point for that inventory item and append to table row
+//   // var fishIconRow = document.createElement("td");
+//   // fishIconRow.textContent = inventory.fishIcon;
+//   // inventoryRow.append(fishIconRow);
+
+//   // var fishNameRow = document.createElement("td");
+//   // fishNameRow.textContent = inventory.fishName;
+//   // inventoryRow.append(fishNameRow);
+
+//   // // var highPriceRow = document.createElement("td");
+//   // // highPriceRow.textContent = inventory.highPrice;
+//   // // inventoryRow.append(highPriceRow);
+
+function displayCjInv(){
+  openCjModal.classList.add('is-active');
+}
+
+//   // sell fish to fish guy
+//     // price increases more 
+// }
 
 // chance fish guy appears
-  // 
-
+  // fish guy needs to disappear after (some) time
 
 // event listeners
 // cast rod button
@@ -376,6 +397,8 @@ exitStoreBtn.addEventListener("click", function () {
 });
 // buy cat fact button
 buyFactBtn.addEventListener("click", getRandomCatFact);
+// sell to CJ button
+sellToCj.addEventListener("click", displayCjInv);
 
 // drag and drop (drop activity)
 interact(".dropzone").dropzone({
