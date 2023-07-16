@@ -12,6 +12,7 @@ var reelInButton = document.querySelector('#reel-btn');
 var successModal = document.querySelector('#success-modal');
 var failureModal = document.querySelector('#failure-model');
 var closingBtns = document.querySelectorAll(".closeModal");
+var castBtn = document.querySelector("#cast-btn")
 
 // global variables
 // request URL
@@ -92,13 +93,14 @@ var reelInHit = 0;
     // reel fish function
     function reelIn(event){
         // displays reelIn button on random place on screen
+        reelInButton.classList.remove("hidden");
         // get random number for position x
         var posX = getRandomNumber(90, 0);
         var posY = getRandomNumber(90, 0);
         
         // moves the button to random position
-        event.target.style.left = posX + "%";
-        event.target.style.top = posY + "%";
+        reelInButton.style.left = posX + "%";
+        reelInButton.style.top = posY + "%";
 
         // increases hit counter
         reelInHit++;
@@ -110,7 +112,7 @@ var reelInHit = 0;
             reelInHit = 0;
         }
 
-        console.log(event.target);
+        
     }
 
     // set interval timer for reeling in fish
@@ -119,7 +121,7 @@ var reelInHit = 0;
         var timeInterval = setInterval(function(){
             timeCount++;
             // if the user takes too long to reel in
-            if(timeCount >= 5 && reelInHit < 5){
+            if(timeCount >= 2 && reelInHit < 5){
                 clearInterval(timeInterval);
                 displayFailureModal();
             } else if (reelInHit >= 5){
@@ -214,6 +216,7 @@ function getRandomNumber(max, min) {
 
 // event listeners
     // cast rod button
+castBtn.addEventListener("click", castRod);
     // reel in button
 reelInButton.addEventListener("click", reelIn);
     // backpack button
