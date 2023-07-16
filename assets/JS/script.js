@@ -20,6 +20,8 @@ var buyFactBtn = document.querySelector("#cat-fact-btn");
 var catFact = document.querySelector("#cat-fact");
 var angryCat = document.querySelector("#angry-store-cat");
 var storeCat = document.querySelector("#store-cat");
+var closedBackpack = document.querySelector("#closed")
+var openedBackpack = document.querySelector("#open")
 
 // global variables
 var inventory = {
@@ -365,3 +367,27 @@ exitStoreBtn.addEventListener("click", function () {
 });
 // buy cat fact button
 buyFactBtn.addEventListener("click", getRandomCatFact);
+
+// drag and drop (drop activity)
+interact(".dropzone").dropzone({
+    accept: '#fish-on-water',
+    overlap: 0.75,
+
+    ondragenter: function(){
+        
+        // replaces the backpack close to  open
+        openedBackpack.classList.add("hidden")
+        closedBackpack.classList.remove("hidden")
+
+
+    },
+
+    ondragleave: function(){
+        // replaces the backpack open to close
+        openedBackpack.classList.remove("hidden")
+        closedBackpack.classList.add("hidden")
+
+    }
+})
+
+// drag and drop (drag activity)
