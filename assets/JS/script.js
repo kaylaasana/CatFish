@@ -7,9 +7,9 @@ var backpackModal = document.querySelector("#backpack-modal");
 var exitBackpackBtn = document.querySelector("#exit-backpack");
 var inventoryBody = document.querySelector("#table-body");
 var wallet = document.querySelector("#money");
-var storeBtn = document.querySelector('#store')
-var storeModal = document.querySelector('#store-modal');
-var exitStoreBtn = document.querySelector('#exit-store')
+var storeBtn = document.querySelector("#store");
+var storeModal = document.querySelector("#store-modal");
+var exitStoreBtn = document.querySelector("#exit-store");
 
 // global variables
 // request URL
@@ -101,10 +101,9 @@ function displayInventory() {
   // display backpack modal
   backpackModal.classList.add("is-active");
 }
-
 // display store
-function displayStore(){
-    storeModal.classList.add("is-active");
+function displayStore() {
+  storeModal.classList.add("is-active");
 }
 
 function getRandomCatFact() {
@@ -128,7 +127,6 @@ function getRandomNumber(max, min) {
   return randomNum;
 }
 
-
 // backpack button
 backpackBtn.addEventListener("click", displayInventory);
 // close backpack button
@@ -136,7 +134,7 @@ exitBackpackBtn.addEventListener("click", function () {
   backpackModal.classList.remove("is-active");
 });
 // open store button
-storeBtn.addEventListener('click', displayStore);
+storeBtn.addEventListener("click", displayStore);
 // close store button
 exitStoreBtn.addEventListener("click", function () {
   storeModal.classList.remove("is-active");
