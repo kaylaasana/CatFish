@@ -43,3 +43,8 @@
 .hidden {
     display: none;
 }
+
+#bite-reaction{
+    position: inherit;
+    font-size: 200%;
+}
