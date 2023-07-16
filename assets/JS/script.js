@@ -2,7 +2,7 @@
 var backpackBtn = document.querySelector("#closed");
 var backpackModal = document.querySelector("#backpack-modal");
 var exitBackpackBtn = document.querySelector("#exit-backpack");
-var inventoryBody = document.querySelector("#table-body");
+var inventoryBody = document.querySelector("#inventory-body");
 var wallet = document.querySelector("#money");
 var exclamationMark = document.querySelector("#bite-reaction");
 var reelInButton = document.querySelector("#reel-btn");
@@ -97,44 +97,6 @@ function setCastingTime() {
   }, delay);
 }
 
-// update inventory
-function addToInventory() {
-  // create table row element
-  var inventoryRow = document.createElement("tr");
-  // create table data elements for each data point for that inventory item and append to table row
-  var fishIconRow = document.createElement("td");
-  fishIconRow.textContent = inventory.fishIcon;
-  inventoryRow.append(fishIconRow);
-
-  var fishNameRow = document.createElement("td");
-  fishNameRow.textContent = inventory.fishName;
-  inventoryRow.append(fishNameRow);
-
-  var fishPriceRow = document.createElement("td");
-  fishPriceRow.textContent = inventory.fishPrice;
-  inventoryRow.append(fishPriceRow);
-  // need to create sell button for each line of inventory
-  var sellBtns = document.createElement("button");
-  sellBtns.setAttribute("class", "sell-btns");
-  sellBtns, (textContent = "Sell Fish");
-  inventoryRow.append(sellBtns);
-  // append data to table row
-  inventoryBody.append(inventoryRow);
-  // event listener for all sell buttons
-  sellBtns.addEventListener("click", function () {
-    // clear table row data
-    inventoryRow.remove();
-    // get current wallet price
-    // update wallet total
-    wallet.textContent = parseInt(wallet.textContent) + inventory.fishPrice;
-  });
-}
-
-// display inventory
-function displayInventory() {
-  // display backpack modal
-  backpackModal.classList.add("is-active");
-}
 // store fish function
 // cast rod function
 function castRod() {
@@ -269,7 +231,7 @@ function addToInventory() {
   // need to create sell button for each line of inventory
   var sellBtns = document.createElement("button");
   sellBtns.setAttribute("class", "sell-btns");
-  sellBtns, (textContent = "Sell Fish");
+  sellBtns.textContent = "Sell Fish";
   inventoryRow.append(sellBtns);
   // append data to table row
   inventoryBody.append(inventoryRow);
@@ -351,30 +313,33 @@ function displayCatFact(randomCatFact) {
   catFact.textContent = randomCatFact;
 }
 
-// display inventory for selling to fish guy
-// function addToCjSellInv(){
-//   // // create table row element
-//   // var inventoryRow = document.createElement("tr");
-//   // // create table data elements for each data point for that inventory item and append to table row
-//   // var fishIconRow = document.createElement("td");
-//   // fishIconRow.textContent = inventory.fishIcon;
-//   // inventoryRow.append(fishIconRow);
+// add to inventory for selling to cj
+function addToCjSellInv(){
+  // create table row element
+  var inventoryRow = document.createElement("tr");
+  // create table data elements for each data point for that inventory item and append to table row
+  var fishIconRow = document.createElement("td");
+  fishIconRow.textContent = inventory.fishIcon;
+  inventoryRow.append(fishIconRow);
 
-//   // var fishNameRow = document.createElement("td");
-//   // fishNameRow.textContent = inventory.fishName;
-//   // inventoryRow.append(fishNameRow);
+  var fishNameRow = document.createElement("td");
+  fishNameRow.textContent = inventory.fishName;
+  inventoryRow.append(fishNameRow);
 
-//   // // var highPriceRow = document.createElement("td");
-//   // // highPriceRow.textContent = inventory.highPrice;
-//   // // inventoryRow.append(highPriceRow);
+  // var highPriceRow = document.createElement("td");
+  // highPriceRow.textContent = inventory.highPrice;
+  // inventoryRow.append(highPriceRow);
 
+
+
+  // sell fish to fish guy
+    // price increases more 
+}
+
+// display inventory to sell to cj
 function displayCjInv(){
   cjModal.classList.add('is-active');
 }
-
-//   // sell fish to fish guy
-//     // price increases more 
-// }
 
 // chance fish guy appears
   // fish guy needs to disappear after (some) time
