@@ -16,6 +16,7 @@ var castBtn = document.querySelector("#cast-btn")
 var storeBtn = document.querySelector("#store");
 var storeModal = document.querySelector("#store-modal");
 var exitStoreBtn = document.querySelector("#exit-store");
+var fishNameinModal = document.querySelector("#fish-name")
 var timeInterval;
 
 // global variables
@@ -142,6 +143,7 @@ var reelInHit = 0;
     // store fish function
 // cast rod function
 function castRod() {
+    castBtn.classList.add("hidden");
   // gets random fish data from animal crossing api
   var axUrl = "http://acnhapi.com/v1/fish/";
   // fetch request to get data
@@ -218,6 +220,17 @@ function castRod() {
             // displays successs modal
             displaySuccessModal();
             clearInterval(timeInterval)
+
+            // make the fish name available
+            fishNameinModal.textContent = inventory.fishName;
+            // hides reel in button
+            reelInButton.classList.add("hidden")
+
+            // re display cast button
+            castBtn.classList.remove("hidden")
+
+            // hide exclamation mark
+            exclamationMark.classList.add("hidden")
         
             // resets hit counter
             reelInHit = 0;
@@ -236,7 +249,15 @@ function castRod() {
                 console.log("failure!")
                 clearInterval(timeInterval);
                 displayFailureModal();
+
+                // hides reel in button
                 reelInButton.classList.add("hidden")
+
+                // hide exclamation mark
+                exclamationMark.classList.add("hidden")
+
+                // re display cast button
+                castBtn.classList.remove("hidden")
             }
         }, 1000)
     }
