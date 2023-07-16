@@ -46,9 +46,11 @@
 
 #closed,
 #open {
+    
     width: 8%;
     cursor: pointer;
     margin-left: 1rem;
+    
 }
 
 #cast {
@@ -80,4 +82,11 @@
 
 .has-text-centered {
     font-size: xx-large;
+}
+
+#fish-on-water{
+    position: absolute;
+    z-index: 1;
+    width: 10%;
+
 }
