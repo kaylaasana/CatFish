@@ -22,7 +22,6 @@ var inventory = {
 };
 
 // functions
-<<<<<<< HEAD
     // change char img
     var castBtn = document.querySelector("#cast-btn")
     var standingCat = document.querySelector("#standing-cat")
@@ -130,7 +129,6 @@ var inventory = {
         backpackModal.classList.add("is-active");
     }
     // store fish function
-=======
 // cast rod function
 function castRod() {
   // gets random fish data from animal crossing api
@@ -166,7 +164,6 @@ function castRod() {
       // reel fish
     });
 }
->>>>>>> 0d0f6aee193b2425f424e3b0c4d341610ebd65b5
 
 // set interval timer for fish bite
 
@@ -237,7 +234,6 @@ function getRandomNumber(max, min) {
   return randomNum;
 }
 
-<<<<<<< HEAD
     // display failure
     // function displayFailureModal() {        
     //     failureModal.classList.add("is-active");
@@ -293,7 +289,6 @@ function getRandomNumber(max, min) {
     // store button
     // sell fish button
     // cat fact button
-=======
 // backpack button
 backpackBtn.addEventListener("click", displayInventory);
 // close backpack button
@@ -306,4 +301,3 @@ storeBtn.addEventListener("click", displayStore);
 exitStoreBtn.addEventListener("click", function () {
   storeModal.classList.remove("is-active");
 });
->>>>>>> 0d0f6aee193b2425f424e3b0c4d341610ebd65b5
