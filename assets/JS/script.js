@@ -21,7 +21,11 @@ var inventory = {
     fishIcon: '',
     fishName: '',
     fishPrice: '',
+    fishImg: '',
 };
+
+// variable for checking the amount of click the user made for reel-in
+var reelInHit = 0;
 
 // functions
     // change char img
@@ -64,8 +68,8 @@ var inventory = {
             inventory.fishPrice = randomFish.price;
             inventory.fishIcon = randomFish.icon_uri;
                 
-            var fishImg = randomFish.image_uri;
-            console.log(fishImg);
+            inventory.fishImg = randomFish.image_uri;
+            
 
             setCastingTime();
             
@@ -102,6 +106,16 @@ var inventory = {
         // moves the button to random position
         event.target.style.left = posX + "%";
         event.target.style.top = posY + "%";
+
+        // increases hit counter
+        reelInHit++;
+        if(reelInHit >= 5){
+            // displays successs modal
+            displaySuccessModal();
+
+            // resets hit counter
+            reelInHit = 0;
+        }
 
         console.log(event.target);
     }
