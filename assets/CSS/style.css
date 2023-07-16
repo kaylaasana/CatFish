@@ -54,3 +54,11 @@
     left: 10%;
     top: 10%;
 }
+
+#store-cat{
+    height: 13rem;
+}
+
+.has-text-centered {
+    font-size: xx-large;
+}
