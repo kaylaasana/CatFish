@@ -390,6 +390,13 @@ interact(".dropzone").dropzone({
         closedBackpack.classList.remove("hidden")
         console.log("leave")
 
+    },
+
+    ondrop: function(event){
+      event.relatedTarget.classList.add("hidden")
+      openedBackpack.classList.add("hidden")
+      closedBackpack.classList.remove("hidden")
+      addToInventory();
     }
 })
 
