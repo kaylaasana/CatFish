@@ -24,7 +24,8 @@ var closedBackpack = document.querySelector("#closed")
 var openedBackpack = document.querySelector("#open")
 // element selectors for fish guy
 var sellToCj = document.querySelector('#cj')
-var openCjModal = document.querySelector('#cj-modal-inv')
+var cjModal = document.querySelector('#cj-modal-inv')
+var closeCjModal = document.querySelector("#exit-cj-modal")
 
 // global variables
 var inventory = {
@@ -368,7 +369,7 @@ function displayCatFact(randomCatFact) {
 //   // // inventoryRow.append(highPriceRow);
 
 function displayCjInv(){
-  openCjModal.classList.add('is-active');
+  cjModal.classList.add('is-active');
 }
 
 //   // sell fish to fish guy
@@ -399,6 +400,10 @@ exitStoreBtn.addEventListener("click", function () {
 buyFactBtn.addEventListener("click", getRandomCatFact);
 // sell to CJ button
 sellToCj.addEventListener("click", displayCjInv);
+// close CJ inv button
+closeCjModal.addEventListener('click', function(){
+  cjModal.classList.remove('is-active');
+})
 
 // drag and drop (drop activity)
 interact(".dropzone").dropzone({
