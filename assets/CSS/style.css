@@ -8,9 +8,16 @@
     height: 13rem;
 }
 
-#happy-cat {
+#happy-cat,
+#sad-cat {
     margin-left: 1rem;
     height: 13rem;
+}
+
+#fish-image {
+    height: 5rem;
+    position: absolute;
+    margin-top: 3rem;
 }
 
 #fishing-cat {
@@ -31,14 +38,15 @@
 }
 
 #store {
-    width: 5%;
+    width: 8.5%;
     height: 10%;
     cursor: pointer;
     margin-left: 1rem;
 }
 
-#closed {
-    width: 4.5%;
+#closed,
+#open {
+    width: 8%;
     cursor: pointer;
     margin-left: 1rem;
 }
@@ -65,14 +73,11 @@
     top: 10%;
 }
 
-#store-cat{
+#store-cat,
+#angry-store-cat {
     height: 13rem;
 }
 
 .has-text-centered {
     font-size: xx-large;
-}
-
-#angry-store-cat {
-    height: 13rem;
 }

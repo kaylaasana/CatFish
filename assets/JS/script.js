@@ -14,6 +14,8 @@ var storeBtn = document.querySelector("#store");
 var storeModal = document.querySelector("#store-modal");
 var exitStoreBtn = document.querySelector("#exit-store");
 var fishNameinModal = document.querySelector("#fish-name");
+var fishImage = document.querySelector('#fish-image')
+var fishImageOnWater = document.querySelector('#fish-on-water')
 var buyFactBtn = document.querySelector("#cat-fact-btn");
 var catFact = document.querySelector("#cat-fact");
 var angryCat = document.querySelector("#angry-store-cat");
@@ -201,6 +203,9 @@ function reelIn() {
 
     // make the fish name available
     fishNameinModal.textContent = inventory.fishName;
+    fishImage.src = inventory.fishImg;
+    fishImageOnWater.src = inventory.fishImg;
+    fishImageOnWater.classList.remove('hidden');
     // hides reel in button
     reelInButton.classList.add("hidden");
 
@@ -338,6 +343,8 @@ function displayCatFact(randomCatFact) {
   // set text content the cat fact to cat fact div
   catFact.textContent = randomCatFact;
 }
+
+
 
 // event listeners
 // cast rod button
