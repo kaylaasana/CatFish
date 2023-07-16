@@ -9,7 +9,7 @@ var closingBtns = document.querySelectorAll(".closeModal");
 // function to start game
 function startGame(){
     // direct you to game page
-    window.location.href = "./index.html";
+    window.location.href = "./assets/index.html";
 }
         
 
