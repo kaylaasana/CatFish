@@ -12,8 +12,6 @@ function startGame(){
     window.location.href = "./assets/index.html";
 }
         
-
-
 // event listener for start button
 startBtn.addEventListener("click", startGame);
 
