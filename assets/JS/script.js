@@ -119,7 +119,7 @@ var reelInHit = 0;
         var timeInterval = setInterval(function(){
             timeCount++;
             // if the user takes too long to reel in
-            if(timeCount >= 5){
+            if(timeCount >= 5 && reelInHit < 5){
                 clearInterval(timeInterval);
                 displayFailureModal();
             } else if (reelInHit >= 5){
