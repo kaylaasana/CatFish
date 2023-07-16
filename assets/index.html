@@ -8,6 +8,9 @@
 
     <!-- sets browser icon -->
     <link rel="icon" type="image/x-icon" href="./img/cat-fish-icon.ico">
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.10.11/interact.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.10.11/interact.min.js"></script> -->
     
     <title>CatFish</title>
 </head>
@@ -15,12 +18,12 @@
     <header>
         <div class="container is-flex is-fluid is-justify-content-end" id="commerce">
             <img src="./img/store.png" alt="store" id="store">
-            <img src="./img/closed_backpack.jpg" alt="closed_backpack" id="closed">
+            <img src="./img/closed_backpack.jpg" class="dropzone" alt="closed_backpack" id="closed">
             <img src="./img/open_backpack.png" class="hidden" alt="open backpack" id="open">
             <h3>Wallet: <span id="money">0</span>$</h3>
         </div>
     </header>
-
+    
     <div class="container is-flex is-fluid is-justify-content-space-around" id="main-box">
         <img class="hidden" id="fish-on-water" src="" alt="fish on screen">
         <img src="./img/standing-cat.jpg" class="image" id="standing-cat">
@@ -140,5 +143,7 @@
         </div>
     </div>
 
+    <!-- interact js -->
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
     <script src="./JS/script.js"></script>
 </html>

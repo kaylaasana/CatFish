@@ -20,6 +20,8 @@ var buyFactBtn = document.querySelector("#cat-fact-btn");
 var catFact = document.querySelector("#cat-fact");
 var angryCat = document.querySelector("#angry-store-cat");
 var storeCat = document.querySelector("#store-cat");
+var closedBackpack = document.querySelector("#closed")
+var openedBackpack = document.querySelector("#open")
 
 // global variables
 var inventory = {
@@ -365,3 +367,62 @@ exitStoreBtn.addEventListener("click", function () {
 });
 // buy cat fact button
 buyFactBtn.addEventListener("click", getRandomCatFact);
+
+// drag and drop (drop activity)
+interact(".dropzone").dropzone({
+    accept: '#fish-on-water',
+    // overlap: 0.75,
+
+    ondragenter: function(){
+        
+        // replaces the backpack close to  open
+        openedBackpack.classList.remove("hidden")
+        closedBackpack.classList.add("hidden")
+        
+        console.log("enter")
+
+
+    },
+
+    ondragleave: function(){
+        // replaces the backpack open to close
+        openedBackpack.classList.add("hidden")
+        closedBackpack.classList.remove("hidden")
+        console.log("leave")
+
+    },
+
+    ondrop: function(event){
+      event.relatedTarget.classList.add("hidden")
+      openedBackpack.classList.add("hidden")
+      closedBackpack.classList.remove("hidden")
+      addToInventory();
+    }
+})
+
+// drag and drop (drag activity)
+interact("#fish-on-water")
+.draggable({
+    inertia: true,
+    modifiers: [
+        interact.modifiers.restrictRect({
+          
+          endOnly: true
+        })
+      ],
+      listeners: { move: dragMoveListener }
+})
+
+function dragMoveListener (event) {
+    var target = event.target
+    // keep the dragged position in the data-x/data-y attributes
+    var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
+    var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
+  
+    // translate the element
+    target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
+  
+    // update the posiion attributes
+    target.setAttribute('data-x', x)
+    target.setAttribute('data-y', y)
+  }
