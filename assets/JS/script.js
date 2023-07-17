@@ -33,7 +33,7 @@ var inventory = {
   fishName: "",
   fishPrice: "",
   fishImg: "",
-  highPrice: "",
+  cjPrice: ""
   // fish guy price
 };
 var factPrice = 5000;
@@ -128,6 +128,7 @@ function castRod() {
       inventory.fishName = randomFish.name["name-USen"];
       inventory.fishPrice = randomFish.price;
       inventory.fishIcon = randomFish.icon_uri;
+      inventory.cjPrice = randomFish["price-cj"]
       // add higher prices to JUST cj inventory
 
       inventory.fishImg = randomFish.image_uri;
@@ -220,7 +221,9 @@ function addToInventory() {
   var inventoryRow = document.createElement("tr");
   // create table data elements for each data point for that inventory item and append to table row
   var fishIconRow = document.createElement("td");
-  fishIconRow.textContent = inventory.fishIcon;
+  var fishIconTag = document.createElement('img');
+  fishIconTag.src = inventory.fishIcon;
+  fishIconRow.append(fishIconTag);
   inventoryRow.append(fishIconRow);
 
   var fishNameRow = document.createElement("td");
@@ -244,7 +247,9 @@ function addToInventory() {
   var cjInventoryRow = document.createElement("tr");
   // create table data elements for each data point for that inventory item and append to table row
   var fishIconRow = document.createElement("td");
-  fishIconRow.textContent = inventory.fishIcon;
+  var fishIconImg = document.createElement('img');
+  fishIconImg.src = inventory.fishIcon;
+  fishIconRow.append(fishIconImg);
   cjInventoryRow.append(fishIconRow);
 
   var fishNameRow = document.createElement("td");
@@ -252,7 +257,7 @@ function addToInventory() {
   cjInventoryRow.append(fishNameRow);
 
   var highPriceRow = document.createElement("td");
-  highPriceRow.textContent = inventory.highPrice;
+  highPriceRow.textContent = inventory.cjPrice;
   cjInventoryRow.append(highPriceRow);
 
   var sellToCjBtns = document.createElement("button");
@@ -272,11 +277,14 @@ function addToInventory() {
     wallet.textContent = parseInt(wallet.textContent) + inventory.fishPrice;
   });
 
-  // sell fish to fish cj
-  // price increases more
-  // when sold fish needs to be removed from BOTH inventories
-
-  //
+  // sell fish to cj
+  sellToCjBtns.addEventListener("click", function() {
+    // remove fish from both inventories
+    inventoryRow.remove();
+    cjInventoryRow.remove();
+    // adds cj price to wallet
+    wallet.textContent = parseInt(wallet.textContent) + inventory.cjPrice;
+  })
 }
 
 // display inventory
