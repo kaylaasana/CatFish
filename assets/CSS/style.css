@@ -1,3 +1,4 @@
+
 #commerce {
     margin-top: 2rem;
 }
@@ -56,7 +57,9 @@
 }
 
 #cast {
+   
     margin-top: 10rem;
+    
 }
 
 .hidden {
@@ -64,10 +67,18 @@
 }
 
 #bite-reaction{
-    position: inherit;
+    position: absolute;
     left: 10%;
     z-index: 2;
     font-size: 200%;
+    color: white;
+    font-weight: bold;
+}
+
+#cast-btn{
+    left: 0%;
+    position: absolute;
+    top: -34rem;
 }
 
 #reel-btn{
@@ -98,8 +109,9 @@
 .cj {
     height: 13rem;
     position: absolute;
-    top: -346%;
+    top: -432%;
     left: 67%;
+    cursor: pointer;
 }
 /* added css for background image */
 #background-image {

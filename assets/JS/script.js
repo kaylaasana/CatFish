@@ -172,7 +172,12 @@ function reelIn() {
   if (reelInHit >= 5) {
     // displays successs modal
     displaySuccessModal();
+
+    // clears time interval
     clearInterval(timeInterval);
+
+    // randomly display cj
+    getFishGuy();
 
     // make the fish name available
     fishNameinModal.textContent = inventory.fishName;
@@ -384,7 +389,6 @@ function getFishGuy(){
     // display cj
     sellToCj.classList.remove("hidden")
   }
-  
 }
 // fish guy needs to disappear after (some) time
 
