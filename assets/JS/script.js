@@ -353,7 +353,7 @@ function displayCjInv() {
 }
 
 // chance fish guy appears
-// fish guy needs to disappear after (some) time
+  // fish guy needs to disappear after (some) time
 
 // event listeners
 // cast rod button
