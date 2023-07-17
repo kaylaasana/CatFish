@@ -237,14 +237,6 @@ function addToInventory() {
   inventoryRow.append(sellBtns);
   // append data to table row
   inventoryBody.append(inventoryRow);
-  // event listener for all sell buttons
-  sellBtns.addEventListener("click", function () {
-    // clear table row data
-    inventoryRow.remove();
-    // get current wallet price
-    // update wallet total
-    wallet.textContent = parseInt(wallet.textContent) + inventory.fishPrice;
-  });
 
   // add to inventory for selling to cj
   var cjInvTableBody = document.querySelector("#table-body");
@@ -263,12 +255,22 @@ function addToInventory() {
   highPriceRow.textContent = inventory.highPrice;
   cjInventoryRow.append(highPriceRow);
 
-  var sellBtns = document.createElement("button");
-  sellBtns.setAttribute("class", "sell-btns");
-  sellBtns.textContent = "Sell Fish";
-  cjInventoryRow.append(sellBtns);
+  var sellToCjBtns = document.createElement("button");
+  sellToCjBtns.setAttribute("class", "sell-btns");
+  sellToCjBtns.textContent = "Sell Fish";
+  cjInventoryRow.append(sellToCjBtns);
   // append data to table row
   cjInvTableBody.append(cjInventoryRow);
+
+  // event listener for all sell buttons
+  sellBtns.addEventListener("click", function () {
+    // clear table row data
+    inventoryRow.remove();
+    cjInventoryRow.remove();
+    // get current wallet price
+    // update wallet total
+    wallet.textContent = parseInt(wallet.textContent) + inventory.fishPrice;
+  });
 
   // sell fish to fish cj
   // price increases more
