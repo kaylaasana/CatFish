@@ -53,42 +53,6 @@ castBtn.addEventListener("click", function () {
   fishingCat.classList.remove("hidden");
 });
 
-// cast rod function
-function castRod() {
-  // gets random fish data from animal crossing api
-  var axUrl = "http://acnhapi.com/v1/fish/";
-  // fetch request to get data
-  fetch(axUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-      // get random number to get random fish data from animal crossing api
-      // make an array of keys
-      var dataKeys = Object.keys(data);
-
-      // get a random number between key length and 0 (inclusive)
-      var randomNum = getRandomNumber(dataKeys.length - 1, 0);
-
-      // a random key from the data
-      var fishKey = dataKeys[randomNum];
-
-      // random fish from the data set
-      var randomFish = data[fishKey];
-
-      // add the data set to inventory object
-      inventory.fishName = randomFish.name["name-USen"];
-      inventory.fishPrice = randomFish.price;
-      inventory.fishIcon = randomFish.icon_uri;
-
-      var fishImg = randomFish.image_uri;
-      console.log(fishImg);
-
-      // reel fish
-    });
-}
-
 // delays fish bite
 function setCastingTime() {
   // get a random number for how long it should delay between
