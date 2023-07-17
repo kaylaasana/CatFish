@@ -22,6 +22,7 @@ var angryCat = document.querySelector("#angry-store-cat");
 var storeCat = document.querySelector("#store-cat");
 var closedBackpack = document.querySelector("#closed");
 var openedBackpack = document.querySelector("#open");
+var mainBox = document.querySelector("#main-box");
 // element selectors for fish guy
 var sellToCj = document.querySelector("#cj");
 var cjModal = document.querySelector("#cj-modal-inv");
@@ -360,6 +361,20 @@ function displayCjInv() {
   cjModal.classList.add("is-active");
 }
 
+// resets fish position after adding to backpack
+function resetFishPos(){
+  // first remove the current image
+  fishImageOnWater.remove();
+  // re-create the element with appropriate styling
+  fishImageOnWater = document.createElement("img");
+  fishImageOnWater.classList.add("hidden")
+  fishImageOnWater.setAttribute("id", "fish-on-water")
+  
+  // append to main box
+  mainBox.appendChild(fishImageOnWater);
+  
+}
+
 // chance fish guy appears
 // fish guy needs to disappear after (some) time
 
@@ -410,10 +425,20 @@ interact(".dropzone").dropzone({
   },
 
   ondrop: function (event) {
+    // resets fish position
+    resetFishPos();
+
+    // hides the fish elem
     event.relatedTarget.classList.add("hidden");
+
+    // changes backpack image back to closed
     openedBackpack.classList.add("hidden");
     closedBackpack.classList.remove("hidden");
+
+    // add to inventory
     addToInventory();
+
+    
   },
 });
 
