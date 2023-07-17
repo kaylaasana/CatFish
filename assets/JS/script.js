@@ -33,7 +33,6 @@ var inventory = {
   fishName: "",
   fishPrice: "",
   fishImg: "",
-  highPrice: "",
   cjPrice: ""
   // fish guy price
 };
@@ -253,7 +252,7 @@ function addToInventory() {
   cjInventoryRow.append(fishNameRow);
 
   var highPriceRow = document.createElement("td");
-  highPriceRow.textContent = inventory.highPrice;
+  highPriceRow.textContent = inventory.cjPrice;
   cjInventoryRow.append(highPriceRow);
 
   var sellToCjBtns = document.createElement("button");
@@ -273,11 +272,14 @@ function addToInventory() {
     wallet.textContent = parseInt(wallet.textContent) + inventory.fishPrice;
   });
 
-  // sell fish to fish cj
-  // price increases more
-  // when sold fish needs to be removed from BOTH inventories
-
-  //
+  // sell fish to cj
+  sellToCjBtns.addEventListener("click", function() {
+    // remove fish from both inventories
+    inventoryRow.remove();
+    cjInventoryRow.remove();
+    // adds cj price to wallet
+    wallet.textContent = parseInt(wallet.textContent) + inventory.cjPrice;
+  })
 }
 
 // display inventory
