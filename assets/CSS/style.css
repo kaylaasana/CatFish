@@ -3,6 +3,28 @@
     margin-top: 2rem;
 }
 
+#commerce h3 {
+    font-family: 'VT323';
+    font-size: 36px;
+}
+
+.modal,
+.button,
+.sell-btns {
+    font-family: 'VT323';
+    font-size: 24px;
+}
+
+.modal-content .box {
+    font-family: 'VT323';
+    font-size: 30px;
+}
+
+.message {
+    font-family: 'VT323';
+    font-size: 36px;
+}
+
 #standing-cat {
     position: absolute;
     margin-right: 90rem;
@@ -79,6 +101,10 @@
     left: 0%;
     position: absolute;
     top: -34rem;
+    font-family: 'VT323';
+    font-size: 24px;
+    background-color: beige;
+    border: 3px solid black;
 }
 
 #reel-btn{
@@ -86,6 +112,10 @@
     z-index: 5;
     left: 10%;
     top: 10%;
+    font-family: 'VT323';
+    font-size: 24px;
+    background-color: beige;
+    border: 3px solid black;
 }
 
 #store-cat,
