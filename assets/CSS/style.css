@@ -26,11 +26,13 @@
     position: absolute;
     z-index: 1;
 }
-
-#lake {
+/* changed to match class descriptor in HTML and added styling to lake */
+.lake {
     width: 80rem;
     height: 20rem;
     position: relative;
+    background-color: rgb(68, 128, 207);
+    border-radius: 200px;
 }
 
 #main-box {
