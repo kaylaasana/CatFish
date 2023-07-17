@@ -15,6 +15,11 @@
     font-size: 24px;
 }
 
+.modal-content .box {
+    font-family: 'VT323';
+    font-size: 30px;
+}
+
 .message {
     font-family: 'VT323';
     font-size: 36px;
