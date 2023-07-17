@@ -34,6 +34,7 @@ var inventory = {
   fishPrice: "",
   fishImg: "",
   highPrice: "",
+  cjPrice: ""
   // fish guy price
 };
 var factPrice = 5000;
