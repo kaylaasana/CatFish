@@ -244,7 +244,7 @@ function addToInventory() {
     cjInventoryRow.remove();
     // get current wallet price
     // update wallet total
-    wallet.textContent = parseInt(wallet.textContent) + inventory.fishPrice;
+    wallet.textContent = parseInt(wallet.textContent) + parseInt(fishPriceRow.textContent);
   });
 
   // sell fish to cj
@@ -253,7 +253,7 @@ function addToInventory() {
     inventoryRow.remove();
     cjInventoryRow.remove();
     // adds cj price to wallet
-    wallet.textContent = parseInt(wallet.textContent) + inventory.cjPrice;
+    wallet.textContent = parseInt(wallet.textContent) + parseInt(highPriceRow.textContent);
   })
 }
 
