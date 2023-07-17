@@ -225,8 +225,6 @@ function addToInventory() {
   fishIconTag.src = inventory.fishIcon;
   fishIconRow.append(fishIconTag);
   inventoryRow.append(fishIconRow);
-  // fishIconRow.textContent = inventory.fishIcon;
-  // inventoryRow.append(fishIconRow);
 
   var fishNameRow = document.createElement("td");
   fishNameRow.textContent = inventory.fishName;
@@ -249,7 +247,9 @@ function addToInventory() {
   var cjInventoryRow = document.createElement("tr");
   // create table data elements for each data point for that inventory item and append to table row
   var fishIconRow = document.createElement("td");
-  fishIconRow.textContent = inventory.fishIcon;
+  var fishIconImg = document.createElement('img');
+  fishIconImg.src = inventory.fishIcon;
+  fishIconRow.append(fishIconImg);
   cjInventoryRow.append(fishIconRow);
 
   var fishNameRow = document.createElement("td");
