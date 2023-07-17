@@ -14,18 +14,18 @@ var storeBtn = document.querySelector("#store");
 var storeModal = document.querySelector("#store-modal");
 var exitStoreBtn = document.querySelector("#exit-store");
 var fishNameinModal = document.querySelector("#fish-name");
-var fishImage = document.querySelector('#fish-image')
-var fishImageOnWater = document.querySelector('#fish-on-water')
+var fishImage = document.querySelector("#fish-image");
+var fishImageOnWater = document.querySelector("#fish-on-water");
 var buyFactBtn = document.querySelector("#cat-fact-btn");
 var catFact = document.querySelector("#cat-fact");
 var angryCat = document.querySelector("#angry-store-cat");
 var storeCat = document.querySelector("#store-cat");
-var closedBackpack = document.querySelector("#closed")
-var openedBackpack = document.querySelector("#open")
+var closedBackpack = document.querySelector("#closed");
+var openedBackpack = document.querySelector("#open");
 // element selectors for fish guy
-var sellToCj = document.querySelector('#cj')
-var cjModal = document.querySelector('#cj-modal-inv')
-var closeCjModal = document.querySelector("#exit-cj-modal")
+var sellToCj = document.querySelector("#cj");
+var cjModal = document.querySelector("#cj-modal-inv");
+var closeCjModal = document.querySelector("#exit-cj-modal");
 
 // global variables
 var inventory = {
@@ -33,6 +33,7 @@ var inventory = {
   fishName: "",
   fishPrice: "",
   fishImg: "",
+  highPrice: "",
   // fish guy price
 };
 var factPrice = 5000;
@@ -127,6 +128,7 @@ function castRod() {
       inventory.fishName = randomFish.name["name-USen"];
       inventory.fishPrice = randomFish.price;
       inventory.fishIcon = randomFish.icon_uri;
+      // add higher prices to JUST cj inventory
 
       inventory.fishImg = randomFish.image_uri;
 
@@ -174,7 +176,7 @@ function reelIn() {
     fishNameinModal.textContent = inventory.fishName;
     fishImage.src = inventory.fishImg;
     fishImageOnWater.src = inventory.fishImg;
-    fishImageOnWater.classList.remove('hidden');
+    fishImageOnWater.classList.remove("hidden");
     // hides reel in button
     reelInButton.classList.add("hidden");
 
@@ -243,6 +245,36 @@ function addToInventory() {
     // update wallet total
     wallet.textContent = parseInt(wallet.textContent) + inventory.fishPrice;
   });
+
+  // add to inventory for selling to cj
+  var cjInvTableBody = document.querySelector("#table-body");
+  // create table row element
+  var cjInventoryRow = document.createElement("tr");
+  // create table data elements for each data point for that inventory item and append to table row
+  var fishIconRow = document.createElement("td");
+  fishIconRow.textContent = inventory.fishIcon;
+  cjInventoryRow.append(fishIconRow);
+
+  var fishNameRow = document.createElement("td");
+  fishNameRow.textContent = inventory.fishName;
+  cjInventoryRow.append(fishNameRow);
+
+  var highPriceRow = document.createElement("td");
+  highPriceRow.textContent = inventory.highPrice;
+  cjInventoryRow.append(highPriceRow);
+
+  var sellBtns = document.createElement("button");
+  sellBtns.setAttribute("class", "sell-btns");
+  sellBtns.textContent = "Sell Fish";
+  cjInventoryRow.append(sellBtns);
+  // append data to table row
+  cjInvTableBody.append(cjInventoryRow);
+
+  // sell fish to fish cj
+  // price increases more
+  // when sold fish needs to be removed from BOTH inventories
+
+  //
 }
 
 // display inventory
@@ -275,7 +307,7 @@ function displayStore() {
   storeModal.classList.add("is-active");
   angryCat.classList.add("hidden");
   storeCat.classList.remove("hidden");
-  catFact.textContent = ''
+  catFact.textContent = "";
 }
 
 function getRandomCatFact() {
@@ -313,36 +345,13 @@ function displayCatFact(randomCatFact) {
   catFact.textContent = randomCatFact;
 }
 
-// add to inventory for selling to cj
-function addToCjSellInv(){
-  // create table row element
-  var inventoryRow = document.createElement("tr");
-  // create table data elements for each data point for that inventory item and append to table row
-  var fishIconRow = document.createElement("td");
-  fishIconRow.textContent = inventory.fishIcon;
-  inventoryRow.append(fishIconRow);
-
-  var fishNameRow = document.createElement("td");
-  fishNameRow.textContent = inventory.fishName;
-  inventoryRow.append(fishNameRow);
-
-  // var highPriceRow = document.createElement("td");
-  // highPriceRow.textContent = inventory.highPrice;
-  // inventoryRow.append(highPriceRow);
-
-
-
-  // sell fish to fish guy
-    // price increases more 
-}
-
 // display inventory to sell to cj
-function displayCjInv(){
-  cjModal.classList.add('is-active');
+function displayCjInv() {
+  cjModal.classList.add("is-active");
 }
 
 // chance fish guy appears
-  // fish guy needs to disappear after (some) time
+// fish guy needs to disappear after (some) time
 
 // event listeners
 // cast rod button
@@ -366,65 +375,59 @@ buyFactBtn.addEventListener("click", getRandomCatFact);
 // sell to CJ button
 sellToCj.addEventListener("click", displayCjInv);
 // close CJ inv button
-closeCjModal.addEventListener('click', function(){
-  cjModal.classList.remove('is-active');
-})
+closeCjModal.addEventListener("click", function () {
+  cjModal.classList.remove("is-active");
+});
 
 // drag and drop (drop activity)
 interact(".dropzone").dropzone({
-    accept: '#fish-on-water',
-    // overlap: 0.75,
+  accept: "#fish-on-water",
+  // overlap: 0.75,
 
-    ondragenter: function(){
-        
-        // replaces the backpack close to  open
-        openedBackpack.classList.remove("hidden")
-        closedBackpack.classList.add("hidden")
-        
-        console.log("enter")
+  ondragenter: function () {
+    // replaces the backpack close to  open
+    openedBackpack.classList.remove("hidden");
+    closedBackpack.classList.add("hidden");
 
+    console.log("enter");
+  },
 
-    },
+  ondragleave: function () {
+    // replaces the backpack open to close
+    openedBackpack.classList.add("hidden");
+    closedBackpack.classList.remove("hidden");
+    console.log("leave");
+  },
 
-    ondragleave: function(){
-        // replaces the backpack open to close
-        openedBackpack.classList.add("hidden")
-        closedBackpack.classList.remove("hidden")
-        console.log("leave")
-
-    },
-
-    ondrop: function(event){
-      event.relatedTarget.classList.add("hidden")
-      openedBackpack.classList.add("hidden")
-      closedBackpack.classList.remove("hidden")
-      addToInventory();
-    }
-})
+  ondrop: function (event) {
+    event.relatedTarget.classList.add("hidden");
+    openedBackpack.classList.add("hidden");
+    closedBackpack.classList.remove("hidden");
+    addToInventory();
+  },
+});
 
 // drag and drop (drag activity)
-interact("#fish-on-water")
-.draggable({
-    inertia: true,
-    modifiers: [
-        interact.modifiers.restrictRect({
-          
-          endOnly: true
-        })
-      ],
-      listeners: { move: dragMoveListener }
-})
+interact("#fish-on-water").draggable({
+  inertia: true,
+  modifiers: [
+    interact.modifiers.restrictRect({
+      endOnly: true,
+    }),
+  ],
+  listeners: { move: dragMoveListener },
+});
 
-function dragMoveListener (event) {
-    var target = event.target
-    // keep the dragged position in the data-x/data-y attributes
-    var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
-    var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
-  
-    // translate the element
-    target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
-  
-    // update the posiion attributes
-    target.setAttribute('data-x', x)
-    target.setAttribute('data-y', y)
-  }
+function dragMoveListener(event) {
+  var target = event.target;
+  // keep the dragged position in the data-x/data-y attributes
+  var x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx;
+  var y = (parseFloat(target.getAttribute("data-y")) || 0) + event.dy;
+
+  // translate the element
+  target.style.transform = "translate(" + x + "px, " + y + "px)";
+
+  // update the posiion attributes
+  target.setAttribute("data-x", x);
+  target.setAttribute("data-y", y);
+}
