@@ -8,6 +8,10 @@
 
     <!-- sets browser icon -->
     <link rel="icon" type="image/x-icon" href="./img/cat-fish-icon.ico">
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.10.11/interact.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.10.11/interact.min.js"></script> -->
+    
     <title>CatFish</title>
 </head>
 <body>
@@ -27,16 +31,29 @@
         <h1 id="bite-reaction" class="hidden">!!!</h1>
         <div class="has-background-link" id="lake"></div>
     </div>
-    <!-- put cj and cast button in container -->
-    <div class="container is-flex is-fluid is-justify-content-space-between">
+
     <div class="container" id="cast">
         <button class="button" id="cast-btn">Cast rod</button>
-    <!-- added image for CJ -->
-    </div>
-        <img src="./img/animal-crossing-cj.png" alt="cj from animal crossing" class="cj image hidden" id="cj">
     </div>
 
     <button class="button is-large hidden" id="reel-btn">REEL IN!</button>
+
+    <!-- character container -->
+        <!-- pre-cast img -->
+        <!-- cast img -->      
+        
+    <!-- lake image/drawing -->
+
+    <!-- container for commerce -->
+        <!-- store button -->
+        <!-- clickable(button) backpack/inventory  -->
+        <!-- wallet h or p tag for text -->
+
+    <!-- button to cast -->
+
+    <!-- reel in button -->
+
+    <!-- fish image placeholder -->
 
     <!-- modal for inventory -->
         <!-- table for inventory -->
@@ -50,13 +67,13 @@
                     <table class="table">
                         <thead>
                           <tr>
-                            <th></th>
+                            <th id=""></th>
                             <th>Name</th>
                             <th>Price</th>
                             <th>Sell</th>
                           </tr>
                         </thead>
-                        <tbody id="inventory-body">
+                        <tbody id="table-body">
                           <tr>
                             <td class="button"></td>
                           </tr>
@@ -66,7 +83,7 @@
             </div>
               
         <button id="exit-backpack" class="modal-close is-large" aria-label="close"></button>
-    </div>
+        </div>
     <!-- modal for store -->
     <div id="store-modal" class="modal">
         <div class="modal-background"></div>
@@ -125,32 +142,6 @@
             </footer>
         </div>
     </div>
-
-    <!-- modal for CJ -->
-    <div id="cj-modal-inv" class="modal">
-        <div class="modal-background"></div>
-              
-            <div class="modal-content">
-                  <div class="box">
-                    <p>What would you like to sell to C.J. ?</p>
-                    <table class="table">
-                        <thead>
-                          <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>Sell</th>
-                          </tr>
-                        </thead>
-                        <tbody id="table-body">
-                          <tr></tr>
-                        </tbody>
-                      </table>
-                </div>
-            </div>
-              
-            <button id="exit-cj-modal" class="modal-close is-large" aria-label="close"></button>
-        </div>
 
     <!-- interact js -->
     <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
