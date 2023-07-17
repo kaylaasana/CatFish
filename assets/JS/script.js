@@ -127,7 +127,8 @@ function castRod() {
       // add the data set to inventory object
       inventory.fishName = randomFish.name["name-USen"];
       inventory.fishPrice = randomFish.price;
-      inventory.fishIcon = randomFish.icon_uri;
+      inventory.fishIcon = randomFish["icon_uri"];
+      inventory.cjPrice = randomFish["price-cj"]
       // add higher prices to JUST cj inventory
 
       inventory.fishImg = randomFish.image_uri;
