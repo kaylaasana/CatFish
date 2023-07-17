@@ -97,6 +97,9 @@
 /* added styling for cj image */
 .cj {
     height: 13rem;
+    position: absolute;
+    top: -346%;
+    left: 67%;
 }
 /* added css for background image */
 #background-image {
