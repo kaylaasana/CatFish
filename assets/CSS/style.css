@@ -26,9 +26,10 @@
 }
 
 #standing-cat {
-    position: absolute;
-    margin-right: 90rem;
+    position: relative;
+   
     height: 13rem;
+    z-index: 1;
 }
 
 #happy-cat,
@@ -45,8 +46,8 @@
 
 #fishing-cat {
     height: 13rem;
-    margin-right: 80rem;
-    position: absolute;
+    left: 13%;
+    position: relative;
     z-index: 1;
 }
 /* changed to match class descriptor in HTML and added styling to lake */
@@ -139,8 +140,8 @@
 .cj {
     height: 13rem;
     position: absolute;
-    top: -432%;
-    left: 67%;
+    top: -426%;
+    left: 4%;
     cursor: pointer;
 }
 /* added css for background image */
@@ -157,3 +158,5 @@
 
     z-index: -2;
 }
+
+
