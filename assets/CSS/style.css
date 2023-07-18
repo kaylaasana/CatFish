@@ -26,9 +26,10 @@
 }
 
 #standing-cat {
-    position: absolute;
-    margin-right: 90rem;
+    position: relative;
+   
     height: 13rem;
+    z-index: 1;
 }
 
 #happy-cat,
@@ -45,6 +46,7 @@
 
 #fishing-cat {
     height: 13rem;
+    left: 13%;
     position: relative;
     z-index: 1;
 }
@@ -156,3 +158,5 @@
 
     z-index: -2;
 }
+
+
