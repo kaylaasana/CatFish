@@ -4,7 +4,6 @@ var backpackModal = document.querySelector("#backpack-modal");
 var exitBackpackBtn = document.querySelector("#exit-backpack");
 var inventoryBody = document.querySelector("#inventory-body");
 var wallet = document.querySelector("#money");
-// var walletAmt = 0;
 var exclamationMark = document.querySelector("#bite-reaction");
 var reelInButton = document.querySelector("#reel-btn");
 var successModal = document.querySelector("#success-modal");
@@ -49,11 +48,12 @@ var castBtn = document.querySelector("#cast-btn");
 var standingCat = document.querySelector("#standing-cat");
 var fishingCat = document.querySelector("#fishing-cat");
 
-function getWallet() {
-  wallet.textContent = localStorage.getItem("wallet")
-}
 if(localStorage.getItem("wallet")) {
   getWallet()
+}
+
+function getWallet() {
+  wallet.textContent = localStorage.getItem("wallet")
 }
 
 
@@ -175,9 +175,14 @@ function reelInInterval() {
     timeCount++;
     // if the user takes too long to reel in
     if (timeCount >= 5 && reelInHit < 5) {
+      reelInHit = 0;
       console.log("failure!");
       clearInterval(timeInterval);
       displayFailureModal();
+
+      // replaces standing cat with fishing cat
+      standingCat.classList.remove("hidden");
+      fishingCat.classList.add("hidden")
 
       // hides reel in button
       reelInButton.classList.add("hidden");
@@ -264,12 +269,12 @@ function addToInventory() {
     storeWallet()
   })
 
-  function storeWallet() {
-    var walletAmt = wallet.textContent;
-    localStorage.setItem("wallet", walletAmt)
-  }
 }
 
+function storeWallet() {
+  var walletAmt = wallet.textContent;
+  localStorage.setItem("wallet", walletAmt)
+}
 // display inventory
 function displayInventory() {
   // display backpack modal
@@ -336,6 +341,8 @@ function displayCatFact(randomCatFact) {
   wallet.textContent = parseInt(wallet.textContent) - factPrice;
   // set text content the cat fact to cat fact div
   catFact.textContent = randomCatFact;
+  // update local storage
+  storeWallet();
 }
 
 // display inventory to sell to cj
