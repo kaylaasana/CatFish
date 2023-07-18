@@ -160,9 +160,6 @@ function reelIn() {
     // hides reel in button
     reelInButton.classList.add("hidden");
 
-    // re display cast button
-    castBtn.classList.remove("hidden");
-
     // hide exclamation mark
     exclamationMark.classList.add("hidden");
 
@@ -432,6 +429,8 @@ interact(".dropzone").dropzone({
     // add to inventory
     addToInventory();
 
+    // re display cast button
+    castBtn.classList.remove("hidden");
     
   },
 });
