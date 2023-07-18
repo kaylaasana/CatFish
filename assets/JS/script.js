@@ -77,7 +77,7 @@ function setCastingTime() {
 function castRod() {
   castBtn.classList.add("hidden");
   // gets random fish data from animal crossing api
-  var axUrl = "http://acnhapi.com/v1/fish/";
+  var axUrl = "https://acnhapi.com/v1/fish/";
   // fetch request to get data
   fetch(axUrl)
     .then(function (response) {
@@ -266,7 +266,7 @@ function addToInventory() {
     wallet.textContent = parseInt(wallet.textContent) + parseInt(highPriceRow.textContent);
     storeWallet()
   })
-  
+
   function storeWallet() {
     var walletAmt = wallet.textContent;
     localStorage.setItem("wallet", walletAmt)
