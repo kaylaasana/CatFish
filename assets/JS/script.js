@@ -341,6 +341,7 @@ function displayCatFact(randomCatFact) {
 // display inventory to sell to cj
 function displayCjInv() {
   cjModal.classList.add("is-active");
+
 }
 
 // resets fish position after adding to backpack
@@ -393,6 +394,7 @@ sellToCj.addEventListener("click", displayCjInv);
 // close CJ inv button
 closeCjModal.addEventListener("click", function () {
   cjModal.classList.remove("is-active");
+  sellToCj.classList.add("hidden")
 });
 
 // drag and drop (drop activity)
