@@ -1,5 +1,7 @@
 # CatFish
 
+![Logo](./assets/img/cat-fish-icon.ico)
+
 ## Description
 
 CatFish is a game that allows users to catch fish to sell, in order to buy random cat facts. This project was built for entertainment purposes, with the inspiration of a creator that has an interest in Animal Crossing and love for cats. We learned to incorporate HTML, CSS, JavaScript, and third party APIs to create one website.
@@ -35,7 +37,7 @@ Dragging your fish to the backpack will open it and drop the fish into your inve
 In this example, the turtle in the normal inventory is 5000 while if you sell to CJ, you can sell it at a higher price for 7500. CJ will pop up every once in a while after you fish.
 
 ![Sold](./assets/README-imgs/sold.PNG)
-Once sold, the fish will disappear from the inventory and the price will be added to your wallet.
+Once sold, the fish will disappear from the inventory and the price will be added to your wallet (this price is adding on from the failure modal).
 
 ![Store](./assets/README-imgs/store.gif)
 <br>
@@ -53,7 +55,6 @@ As you buy cat facts, worth $5000, the money will be subtracted from your wallet
 ### APIs:
 
 * [Animal Crossing Fish API](https://acnhapi.com/v1/fish/)
-
 * [MeowFacts API](https://meowfacts.herokuapp.com/)
 
 ## Credits
@@ -77,4 +78,4 @@ Images:
 * [Store](http://www.onlinewebfonts.com/icon)
 * [CJ image](https://nookipedia.com/wiki/C.J./Gallery#/media/File:C.J._NH.png)
 * Icon Illustration: Ari Kim(https://www.instagram.com/aryxkim/)
-* Character/title design: Minhee Chung
+* Character/title/background design: Minhee Chung
