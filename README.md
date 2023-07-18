@@ -14,11 +14,32 @@ Link to deployed site: (https://kaylaasana.github.io/CatFish/)
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+![Homepage](./assets/README-imgs/homepage.PNG)
+Click the "start" button to jump right into the game or the "how to play" button to read!
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
+![How to Play](./assets/README-imgs/how.PNG)
 
-![alt text](assets/images/screenshot.png)
+![Cast rod](./assets/img/cast-demo.gif)
+<br>
+Click "cast rod" to start fishing and click the "reel in" button 4 times within a time interval. If successful, a modal will pop up with the random fish you got, as pictured above.
+
+![Failed Modal](./assets/README-imgs/fail.PNG)
+If failed, the failure modal with a sad cat will pop up.
+
+![Drag to inventory](./assets/img/drag-demo.gif)
+<br>
+Dragging your fish to the backpack will open it and drop the fish into your inventory.
+
+![Selling to CJ](./assets/README-imgs/cj.gif)'
+<br>
+In this example, the turtle in the normal inventory is 5000 while if you sell to CJ, you can sell it at a higher price for 7500. CJ will pop up every once in a while after you fish.
+
+![Sold](./assets/README-imgs/sold.PNG)
+Once sold, the fish will disappear from the inventory and the price will be added to your wallet.
+
+![Store](./assets/README-imgs/store.gif)
+<br>
+As you buy cat facts, worth $5000, the money will be subtracted from your wallet. If you try to buy a fact when you don't have enough money, you will be met with an angry store cat sales-animal.
 
 ## Technologies Used
 
