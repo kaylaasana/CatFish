@@ -4,6 +4,7 @@ var backpackModal = document.querySelector("#backpack-modal");
 var exitBackpackBtn = document.querySelector("#exit-backpack");
 var inventoryBody = document.querySelector("#inventory-body");
 var wallet = document.querySelector("#money");
+// var walletAmt = 0;
 var exclamationMark = document.querySelector("#bite-reaction");
 var reelInButton = document.querySelector("#reel-btn");
 var successModal = document.querySelector("#success-modal");
@@ -48,6 +49,14 @@ var castBtn = document.querySelector("#cast-btn");
 var standingCat = document.querySelector("#standing-cat");
 var fishingCat = document.querySelector("#fishing-cat");
 
+function getWallet() {
+  wallet.textContent = localStorage.getItem("wallet")
+}
+if(localStorage.getItem("wallet")) {
+  getWallet()
+}
+
+
 castBtn.addEventListener("click", function () {
   standingCat.classList.add("hidden");
   fishingCat.classList.remove("hidden");
@@ -68,7 +77,7 @@ function setCastingTime() {
 function castRod() {
   castBtn.classList.add("hidden");
   // gets random fish data from animal crossing api
-  var axUrl = "http://acnhapi.com/v1/fish/";
+  var axUrl = "https://acnhapi.com/v1/fish/";
   // fetch request to get data
   fetch(axUrl)
     .then(function (response) {
@@ -245,6 +254,7 @@ function addToInventory() {
     // get current wallet price
     // update wallet total
     wallet.textContent = parseInt(wallet.textContent) + parseInt(fishPriceRow.textContent);
+    storeWallet()
   });
 
   // sell fish to cj
@@ -254,7 +264,13 @@ function addToInventory() {
     cjInventoryRow.remove();
     // adds cj price to wallet
     wallet.textContent = parseInt(wallet.textContent) + parseInt(highPriceRow.textContent);
+    storeWallet()
   })
+
+  function storeWallet() {
+    var walletAmt = wallet.textContent;
+    localStorage.setItem("wallet", walletAmt)
+  }
 }
 
 // display inventory
@@ -444,3 +460,4 @@ function dragMoveListener(event) {
   target.setAttribute("data-x", x);
   target.setAttribute("data-y", y);
 }
+
