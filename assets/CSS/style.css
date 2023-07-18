@@ -130,9 +130,9 @@
 
 #fish-on-water{
     position: absolute;
-    left: 19%;
+    left: 30%;
     top: 52%;
-    z-index: 1;
+    z-index: 2;
     width: 10%;
 
 }
