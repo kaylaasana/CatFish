@@ -431,7 +431,8 @@ interact(".dropzone").dropzone({
 
     // re display cast button
     castBtn.classList.remove("hidden");
-    
+    standingCat.classList.remove("hidden");
+    fishingCat.classList.add("hidden")
   },
 });
 
