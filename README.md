@@ -8,13 +8,46 @@ CatFish is a game that allows users to catch fish to sell, in order to buy rando
 
 Link to deployed site: (https://kaylaasana.github.io/CatFish/)
 
+Presentation link: (https://docs.google.com/presentation/d/1tbUX_hbqUkRPn2RHLv-9V4_ODjiwgccQ2HX7UU3FyM0/edit?usp=sharing)
+
 ## Table of Contents
 
-- [Usage](#usage)
 - [Technologies Used](#technologies-used)
+- [User Stories](#user-stories)
+- [API User Stories](#api-user-stories)
+- [Learning Objectives](#learning-objectives)
+- [Authors](#authors)
 - [Credits](#credits)
 
-## Usage
+## Technologies Used
+
+* [Bulma](https://bulma.io/) (More info below!)
+* [Google Fonts VT323](https://fonts.google.com/specimen/VT323?category=Handwriting,Monospace&sort=popularity)
+* [interact.js](https://interactjs.io/)
+* HTML
+* CSS
+* JavaScript
+
+### APIs:
+
+* [Animal Crossing Fish API](https://acnhapi.com/v1/fish/)
+
+* [MeowFacts API](https://meowfacts.herokuapp.com/)
+
+### [Bulma](https://bulma.io/)
+
+Bulma is a CSS library that helps you style your HTML code. To get started, insert this line of code into the head of your HTML.
+
+`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">`
+
+* [Modal documentation](https://bulma.io/documentation/components/modal/)
+    * The HTML template provided with the documentation for the "is-active" modifier to activate the modal were used to create the success modal, failure modal, store, and inventory.
+* [Button documentation](https://bulma.io/documentation/elements/button/)
+    * The button class with the size modifiers were used to style the buttons on the homepage, exit buttons on the modals, and the buy cat fact button.
+* Resizing at different viewports
+![resize](./assets/README-imgs/resize.gif)
+
+## User Stories
 
 ![Homepage](./assets/README-imgs/homepage.PNG)
 Click the "start" button to jump right into the game or the "how to play" button to read!
@@ -43,21 +76,25 @@ Once sold, the fish will disappear from the inventory and the price will be adde
 <br>
 As you buy cat facts, worth $5000, the money will be subtracted from your wallet. If you try to buy a fact when you don't have enough money, you will be met with an angry store cat sales-animal.
 
-## Technologies Used
+## API User Stories
+![Animal Crossing API](./assets/README-imgs/animal-api.PNG)
 
-* [Bulma](https://bulma.io/)
-* [Google Fonts VT323](https://fonts.google.com/specimen/VT323?category=Handwriting,Monospace&sort=popularity)
-* [interact.js](https://interactjs.io/)
-* HTML
-* CSS
-* JavaScript
+The fetch request generates a random fish from the Animal Crossing API and stores it into the global inventory object.
 
-### APIs:
+![Cat Fact API](./assets/README-imgs/cat-api.PNG)
 
-* [Animal Crossing Fish API](https://acnhapi.com/v1/fish/)
-* [MeowFacts API](https://meowfacts.herokuapp.com/)
+The fetch request generates a random cat fact to display from the MeowFact API.
 
-## Credits
+## Learning Objectives
+
+1. Working with fellow programmers helped me learn how to communicate to explain my ideas and thoughts, as well as expand and build off each other.
+2. It also forced me to work with git branching, which created many merge conflicts. It was a new challenge and definitely helped me understand the intricacies of merge conflicts and the process for resolving them.
+3. Learning how to read documentation for varying apis, frameworks, and libraries. Understanding various API documentation was a challenge that I look forward to expanding on as I dive into even more available APIs in the future.
+4. I learned how to use some aspects of CSS that were unfamiliar to me like the z-index for the background image in the homepage and gamepage. 
+Also found it helpful to know that it can have a negative value, which was helpful in our gamepage code.
+5. I learned to use traversal for multiple features on the page, such as retrieving random data to append to a row in the inventory.
+
+## Authors
 
 ### Kayla Datte
 - [GitHub](https://github.com/kaylaasana)
@@ -70,6 +107,8 @@ As you buy cat facts, worth $5000, the money will be subtracted from your wallet
 ### June Moon
 - [Github](https://github.com/moonjunsain)
 - [Linkedin](https://www.linkedin.com/in/june-moon-940538280/)
+
+## Credits
 
 Images:
 
